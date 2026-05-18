@@ -1,192 +1,139 @@
 "use strict";
-/*
-const promise = fetch("assets/data/file.txt");
-// passer par une fonction nommée
-promise.then(fetchResolve);
 
-function fetchResolve(){
-// code 
-}
+  // ==========================================
+  // 1. SÉQUENCE DE DÉMARRAGE (GSAP)
+  // ==========================================
+  gsap.registerPlugin(TextPlugin);
 
-//méthode 2 : passer par une fonction anonyme
-promise.then(function() {
-    // code 
-});
-*/
+  const bootScreen = document.getElementById('boot-screen');
+  const briefingContainer = document.getElementById('boot-briefing');
+  const bootBtn = document.getElementById('boot-btn');
+  const logsP = document.querySelectorAll('#boot-logs p');
 
-// sans variable 
-
-/* EXO 1 JAVA SCRIPT
-
-var btn = document.querySelector(".btn--fetch");
-var p = document.querySelector(".text--fetch");
-
-btn.addEventListener("click", function(event){
-    event.preventDefault();
-    var target = event.currentTarget;
-    var url = target.getAttribute("href");
-    console.log(target);
-
-    fetch("assets/data/description.txt")
-    .then(function (response) {
-        return response.text();
-    })
-    .then(function (data) {
-        console.log(data);
-        p.innerText = data;
-    })
-    
-    .catch(function (error) {
-        console.log("errrrrrrror");
-    })
-});
-
-*/
-
-// EXO 2 JAVA SCRIPT
-
-/*
-var btn = document.querySelector(".button");
-var select = document.querySelector(".files-select");
-var div = document.querySelector(".content");
-
-btn.addEventListener("click", function(event){
-    var selectedValue = select.value;
-    var url = "assets/data/" + selectedValue;
-
-    fetch(url)   
-    .then(function (response) {
-        return response.text();
-    })
-    .then(function (data) {
-        console.log(data);
-        div.innerHTML = data;
-    })
-    
-    .catch(function (error) {
-        console.log("errrrrrrror");
-    })
-
-});
-*/
-
-/*
-fetch("assets/data/description.txt")
-    .then(function(response) {
-        return response.text();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-    
-    .catch(function(error) {
-        console.log("errrrrrrror");
-    });
-*/
-
-// EXO JSON JAVA SCRIPT
-
-/*
-var button = document.querySelector(".btn");
-var PetitBtn = document.querySelector(".btn2");
-var elTitle = document.querySelector(".title");
-var elAddress = document.querySelector(".address");
-var elSection = document.querySelector(".section");
-
-button.addEventListener("click", onButtonClick);
-PetitBtn.addEventListener("click", onButtonClick);
-
-function onButtonClick(event) {
-    console.log("button cliqué");
-
-    var target = event.currentTarget;
-
-    fetch("assets/data/heaj.json")
-    .then(function(response) {
-       return response.json(); // extrait le json de la réponse 
-    })
-    .then(function(data) {
-        console.log(data); // data = traitement du then() précédent
-        console.log(data.name);
-        console.log(data.sections[3]);
-
-        elTitle.innerText = data.name;
-        elAddress.innerText = data.address.street;
-        elSection.innerText = data.sections[3];
-    })
-}
-*/
-
-/*
-var list =[
-    { firstname: "John", lastname: "Doe"},
-    { firstname: "Jane", lastname: "Doe"},
-    { firstname: "Toto", lastname: "Titi"},
-    ];
-
-list.forEach(function(item) {
-    console.log(item);
-});
-
-var buttons = document.querySelectorAll(".btn");
-buttons.forEach(function(item) {
-    console.log(item)
-});
-
-var btn = document.querySelector(".btn");
-var btn2 = document.querySelector(".btn2");
-btn.addEventListener("click", onButtonClick);
-btn2.addEventListener("click", onButtonClick);
-
-function onButtonClick(event) {
-    var target = event.currentTarget;
-    var url = target.getAttribute("data-url"); // data-url à mettre sur un button dans le html. exemple : data-url="assets/data/heaj.json"
-    fetch(url);
-}
-*/
-
-/*
-var Links = document.querySelectorAll(".link");
-
-Links.innerText = "yo";
-var url = Links.getAttribute("href");
-Links.setAttribute("href", "http://google.com");
-
-var btn = document.querySelector(".btn");
-btn.addEventListener("click", function(event) {
-    fetch(assests/data/heaj.json)
-});
-*/
-
-/*
-var section = document.querySelector(".content");
-
-var parag = document.createElement("p");
-parag.innerText = "Hello world";
-
-var parag2 = document.createElement("p");
-parag2.innerText = "Hello world 2";
-
-section.appendChild(parag);
-section.appendChild(parag2);
-*/
-
-// EXO FETCH API
-
-fetch("https://web.mayfly.ovh/api.php?type=city&query=b")
-    .then(function(response) {
-       return response.json();
-    })
-
-    .then(function(data) {
-        console.log(data)
-        data.forEach(function(obj) {
-            console.log(obj.title);
-            var li = document.createElement("li");
-            li.innerText = obj.title;
-            ul.appendChild(li);
-        }
-    )})
-
-            
+  // CRUCIAL : On utilise innerHTML pour capturer les <br> de ton HTML
+  const briefingText = briefingContainer.innerHTML.trim();
   
+  // On vide la boîte pour préparer l'animation
+  briefingContainer.innerHTML = "";
+  briefingContainer.style.visibility = "visible";
+
+  // Création de la chorégraphie GSAP
+  const tl = gsap.timeline();
+
+  tl.to(logsP, {
+    display: "block",
+    duration: 0.01,
+    stagger: 0.2 // Temps entre chaque ligne de log
+  })
+  .to("#boot-logs", {
+    autoAlpha: 0,
+    display: "none",
+    duration: 0.2
+  }, "+=0.5")
+  .to(briefingContainer, {
+    // LA CONFIGURATION MAGIQUE POUR LES <BR> EST ICI :
+    text: {
+      value: briefingText,
+      html: true // Dit à GSAP : "Interprète les balises HTML, ne les écris pas !"
+    },
+    duration: 4, // L'effet machine à écrire durera 4 secondes
+    ease: "none"
+  })
+  .to(bootBtn, {
+    autoAlpha: 1, // Fait apparaître le bouton avec un fondu
+    duration: 0.5
+  }, "+=0.3");
+
+  // Fermeture du boot screen au clic du bouton
+  bootBtn.addEventListener('click', () => {
+    gsap.to(bootScreen, {
+      autoAlpha: 0, // Fondu noir
+      duration: 1,
+      onComplete: () => {
+        bootScreen.style.display = 'none'; // Détruit l'écran de chargement
+      }
+    });
+  });
+
+
+  // ==========================================
+  // 2. GESTION DES FENÊTRES DE L'OS (Ouverture/Fermeture)
+  // ==========================================
+  const icons = document.querySelectorAll('.terminal-icon');
+  const closeButtons = document.querySelectorAll('.close-btn');
+  const windows = document.querySelectorAll('.terminal-window');
+  
+  let zIndexCounter = 100;
+
+  // Ouvrir les fenêtres
+  icons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      const targetName = icon.getAttribute('data-target');
+      const windowSelector = `.terminal-window--${targetName}`;
+      const targetWindow = document.querySelector(windowSelector);
+      
+      if (targetWindow) {
+        targetWindow.classList.add('active');
+        zIndexCounter++;
+        targetWindow.style.zIndex = zIndexCounter;
+      }
+    });
+  });
+
+  // Fermer les fenêtres
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parentWindow = btn.closest('.terminal-window');
+      if (parentWindow) {
+        parentWindow.classList.remove('active');
+      }
+    });
+  });
+
+  // Mettre la fenêtre au premier plan au clic
+  windows.forEach(win => {
+    win.addEventListener('mousedown', () => {
+      zIndexCounter++;
+      win.style.zIndex = zIndexCounter;
+    });
+  });
+
+
+  // ==========================================
+  // 3. SYSTÈME DE GLISSER-DÉPOSER (DRAG)
+  // ==========================================
+  windows.forEach(win => {
+    const header = win.querySelector('.window-header');
+    
+    let isDragging = false;
+    let startX, startY, initialLeft, initialTop;
+
+    header.addEventListener('mousedown', (e) => {
+      if (e.target.classList.contains('close-btn')) return;
+
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      initialLeft = win.offsetLeft;
+      initialTop = win.offsetTop;
+      
+      e.preventDefault();
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    });
+
+    function onMouseMove(e) {
+      if (!isDragging) return;
+      const distanceX = e.clientX - startX;
+      const distanceY = e.clientY - startY;
+      win.style.left = `${initialLeft + distanceX}px`;
+      win.style.top = `${initialTop + distanceY}px`;
+    }
+
+    function onMouseUp() {
+      isDragging = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    }
+  });

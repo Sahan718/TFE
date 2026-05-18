@@ -1,0 +1,172 @@
+@import 'utils/variables';
+@import 'components/type';
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --theme-color: black; /* Vert terminal, tu pourras changer */
+}
+
+body {
+  margin: 0;
+  background-color: gray;
+  color: var(--theme-color);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* --- BOOT SCREEN --- */
+.terminal-boot {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh;
+  background-color: gray;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.boot-container {
+  width: 80%;
+  max-width: 800px;
+}
+
+.boot-logs {
+  font-size: 0.9rem;
+  color: var(--theme-color);
+  opacity: 0.6;
+  margin-bottom: 20px;
+  height: 150px; 
+  overflow: hidden;
+}
+
+/* NOUVEAU : Cache les logs HTML pour que GSAP les gère */
+#boot-logs p {
+  display: none;
+  margin: 5px 0;
+}
+
+.boot-briefing {
+  font-size: 1.1rem;
+  color: var(--theme-color);
+  line-height: 1.8; /* Aère les paragraphes */
+  margin: 0 auto 30px auto;
+  min-height: 150px;
+  white-space: pre-wrap; /* Garde tes sauts de ligne HTML */
+  max-width: 650px;
+  text-align: left;
+  padding: 20px 30px;
+  visibility: hidden; /* Caché au début pour GSAP */
+}
+
+.boot-btn {
+  background: transparent;
+  color: var(--theme-color);
+  border: 1px solid var(--theme-color);
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  visibility: hidden; /* Caché au début pour GSAP */
+  opacity: 0;
+}
+
+.boot-btn:hover {
+  background: rgb(200, 200, 200);
+}
+
+/* --- BUREAU OS --- */
+.terminal {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  width: 10%;
+  height: 70%;
+}
+
+.terminal-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 1.5vh;
+}
+
+.terminal-icon--image, .terminal-icon--map, .terminal-icon--file {
+  filter: grayscale(1) contrast(150%);
+  width: 80px;
+  height: 70px;
+  margin: 10px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* --- FENÊTRES --- */
+.terminal-window {
+  display: none;
+  position: absolute;
+  width: 400px;
+  min-height: 250px;
+  background-color: #000;
+  border: 1px solid black;
+  z-index: 100;
+}
+
+.terminal-window.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-window--image { top: 15%; left: 10%; }
+.terminal-window--map { top: 20%; left: 25%; }
+.terminal-window--file { top: 25%; left: 40%; }
+
+.window-header {
+  background-color: rgb(77, 77, 77);
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: grab;
+  user-select: none;
+}
+
+.window-header:active {
+  cursor: grabbing;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close-btn:hover {
+  color: red;
+}
+
+.window-content {
+  padding: 15px;
+  flex-grow: 1;
+  color: #000000;
+  background-color: gray;
+}
+
+.terminal-footer {
+    position: relative;
+    background-color: #fbd2f6;
+    color: #8a4484;
+    margin-top: auto;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    z-index: 0;
+}

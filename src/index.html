@@ -1,47 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DWMA project</title>
+  <title>TFE - Project 74</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
   <meta name="description" content="">
-  <!-- Meta Partage -->
-  <!-- Favicon -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="styles/app.css">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
   <script src="scripts/app.js" defer></script>
 </head>
+
 <body>
 
-  <!-- <img src="assets/images/logo-heaj.png">
-  <h1>Hello world</h1>
+  <div id="boot-screen" class="terminal-boot">
+    <div class="boot-container">
+      
+      <div id="boot-logs" class="boot-logs">
+        <p>> INITIALIZING KERNEL...</p>
+        <p>> MOUNTING VIRTUAL DRIVES...</p>
+        <p>> LOADING NEURAL NETWORKS... OK</p>
+        <p>> CHECKING SECURITY PROTOCOLS... BYPASSED</p>
+        <p>> DECRYPTING MISSION FILES...</p>
+        <p>> CONNECTION ESTABLISHED.</p>
+      </div>
+      
+      <div id="boot-briefing" class="boot-briefing">
+ID AGENT : "FOUR" <br>
+SECTEUR : BERLIN EST, LICHTENBERG <br>
+STATUT : ACTIF <br><br>
 
-  <button class="btn">CLICK ME</button>
-  <button class="btn2">CLICK ME 2</button>
+DIRECTIVE : <br>
+Nous avons reçu de nouvelles informations concernant la défection. Vos ordres sont de vérifier les rapports de la Stasi à propos du traître, l'agent 'Seven', et de nous les faire parvenir pour protéger notre mode de vie. Une source anonyme nous a également fait mention du projet "Fallguy". En premier lieu, découvrez les raisons de la trahisons de l'agent "Seven". Nous vous tiendrons au courant des prochains objectifs. <br> <br>
 
-  <h1 class="title"></h1>
-  <p class="address"></p>
-  <p class="section"></p> -->
+L'Ouest protège. <br> <br>
 
-  <!-- <select class="files-select">
-    <option value="description.txt">Description 1</option>
-    <option value="description2.txt">Description 2</option>
-    <option value="description3.txt">Description 3</option>
-  </select>
+Fin de transmission"
+      </div>
+      
+      <button id="boot-btn" class="boot-btn">
+        > ACCÉDER AU TERMINAL
+      </button>
+    </div>
+  </div>
 
-  <button class="button">Charger le fichier</button>
+  <main class="terminal">
+    <div class="terminal-icon terminal-icon--image" data-target="image">
+      <img src="./assets/images/icons8-file-64.svg" alt="Icone de file image" class="icon_image">
+      <span class="icon_text">Image</span>
+    </div>
+    <div class="terminal-icon terminal-icon--map" data-target="map">
+      <img src="./assets/images/icons8-file-64.svg" alt="Icone de file map" class="icon_image">
+      <span class="icon_text">Map</span>
+    </div>
+    <div class="terminal-icon terminal-icon--file" data-target="file">
+      <img src="./assets/images/icons8-file-64.svg" alt="Icone de file" class="icon_image">
+      <span class="icon_text">Rapport</span>
+    </div>
+  </main>
+
+  <section class="terminal-window terminal-window--image">
+    <div class="window-header">
+      <span class="window-title">Image</span>
+      <button class="close-btn">X</button>
+    </div>
+    <div class="window-content">
+      
+    </div>
+  </section>
+
+  <section class="terminal-window terminal-window--map">
+    <div class="window-header">
+      <span class="window-title">Map</span>
+      <button class="close-btn">X</button>
+    </div>
+    <div class="window-content">
+      
+    </div>
+  </section>
+
+  <section class="terminal-window terminal-window--file">
+    <div class="window-header">
+      <span class="window-title">Rapport</span>
+      <button class="close-btn">X</button>
+    </div>
+    <div class="window-content">
+     
+    </div>
+  </section>
+
+  <footer class="terminal-footer">
+    
+  </footer>
   
-  <div class="content"></div> -->
-
-  <!--  <button class="btn--fetch"></button>
-        <a class="btn--fetch" href="assets/data/description.txt"></a>
-
-        <p class="text--fetch"></p> -->
-  
-<ul class="list" data-url="https://web.mayfly.ovh/api.php?type=city&query=b"></ul>
+  <ul class="list" data-url="https://web.mayfly.ovh/api.php?type=city&query=b"></ul>
 
 </body>
 </html>
