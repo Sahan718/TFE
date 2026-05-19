@@ -64,36 +64,60 @@ Fin de transmission"
 
   <section class="terminal-window terminal-window--image">
     <div class="window-header">
+      <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-image">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
       <span class="window-title">Image</span>
       <button class="close-btn">X</button>
     </div>
     <div class="window-content">
-      
+      <img src="./assets/images/xdd.webp" alt="Image test" class="window-content--image">
     </div>
   </section>
 
   <section class="terminal-window terminal-window--map">
     <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-map">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
       <span class="window-title">Map</span>
       <button class="close-btn">X</button>
     </div>
     <div class="window-content">
-      
+      <img src="./assets/images/berlin_carto.webp" alt="Test image" class="window-content--map">
     </div>
   </section>
 
   <section class="terminal-window terminal-window--file">
     <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-file">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
       <span class="window-title">Rapport</span>
       <button class="close-btn">X</button>
     </div>
     <div class="window-content">
-     
+     <p class="window-content--text">Nous avons eu la surprise du contact d'un certain agent du nom de "Seven", de sa présentation. Il refuse de dénoncer son vrai nom pour l'instant, mais il nous fait part de plusieurs choses intéressantes, notamment qu'il vient de l'Ouest et qu'il fait partie d'une Task Force classifiée, qui s'occupe de la recherche et le développement d'une arme secrète utilisant l'élément 74. Si ce qu'il dit est véridique, il pourrait être un atout considérable à l'ascension de l'Est.</p>
     </div>
   </section>
 
   <footer class="terminal-footer">
-    
+
   </footer>
   
   <ul class="list" data-url="https://web.mayfly.ovh/api.php?type=city&query=b"></ul>
