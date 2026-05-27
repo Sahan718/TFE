@@ -203,7 +203,7 @@
 
         // STEP 2 SI BON
         inputField.value = ""; // Vide le champ
-        footerQuestion.textContent = "Identité de la source anonyme : "; // Change la question
+        footerQuestion.textContent = "But du projet Fallguy : "; // Change la question
         etapeActuelle = 2; // Le jeu passe au niveau 2
 
       } else {
@@ -216,7 +216,7 @@
    // PART 2
     else if (etapeActuelle === 2) {
       // Réponse 
-      if (userAnswer === "PROJET FALLGUY") {
+      if (userAnswer === "LIVRER UN AGENT DE L'OUEST") {
         
         feedbackMsg.textContent = "ACCÈS AUTORISÉ";
         feedbackMsg.className = "feedback-msg success"; 
