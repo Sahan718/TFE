@@ -97,7 +97,7 @@ body {
   margin-right: 1.5vh;
 }
 
-.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--secret {
+.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--secret, .terminal-icon--secret__two {
   filter: grayscale(1) contrast(150%);
   width: 80px;
   height: 70px;
