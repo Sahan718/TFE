@@ -11,6 +11,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
   <script src="scripts/app.js" defer></script>
 </head>
 
@@ -60,14 +61,22 @@ Fin de transmission"
       <img src="./assets/images/icons8-file-64.svg" alt="Icone de file" class="icon_image">
       <span class="icon_text">Rapport</span>
     </div>
+    <div class="terminal-icon terminal-icon--secret hidden-element" data-target="secret">
+      <img src="./assets/images/icons8-file-64.svg" alt="Icone de file" class="icon_image">
+      <span class="icon_text">Rapport n°2</span>
+    </div>
+    <div class="terminal-icon terminal-icon--secret__two hidden-element" data-target="secret__two">
+      <img src="./assets/images/icons8-file-64.svg" alt="Icone de file" class="icon_image">
+      <span class="icon_text">Rapport ennemi</span>
+    </div>
   </main>
 
   <section class="terminal-window terminal-window--image">
     <div class="window-header">
       <div class="window-header--filter">
         <div class="window-header--filter__text">OFF</div>
-        <label for="filter-dcv">
-          <input type="checkbox" name="dcvfilter" id="filter-dcv-image">
+        <label for="filter-dcv-image">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-image" class="filter-dcv-toggle">
           <span class="slider round"></span>
         </label>
         <div class="window-header--filter__text">ON</div>
@@ -75,8 +84,9 @@ Fin de transmission"
       <span class="window-title">Image</span>
       <button class="close-btn">X</button>
     </div>
-    <div class="window-content">
-      <img src="./assets/images/xdd.webp" alt="Image test" class="window-content--image">
+    <div class="window-content spotlight-container">
+      <img src="./assets/images/xdd.webp" alt="Image test" class="window-content--image layer">
+      <img src="./assets/images/berlin_carto.webp" alt="Image test 2" class="window-content--image secret-layer">
     </div>
   </section>
 
@@ -84,8 +94,8 @@ Fin de transmission"
     <div class="window-header">
        <div class="window-header--filter">
         <div class="window-header--filter__text">OFF</div>
-        <label for="filter-dcv">
-          <input type="checkbox" name="dcvfilter" id="filter-dcv-map">
+        <label for="filter-dcv-map">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-map" class="filter-dcv-toggle">
           <span class="slider round"></span>
         </label>
         <div class="window-header--filter__text">ON</div>
@@ -93,8 +103,9 @@ Fin de transmission"
       <span class="window-title">Map</span>
       <button class="close-btn">X</button>
     </div>
-    <div class="window-content">
-      <img src="./assets/images/berlin_carto.webp" alt="Test image" class="window-content--map">
+    <div class="window-content spotlight-container">
+      <img src="./assets/images/berlin_carto_two.webp" alt="Test image" class="window-content--map layer">
+      <img src="./assets/images/berlin_carto_two.webp" alt="Test image 2" class="window-content--map secret-layer">
     </div>
   </section>
 
@@ -102,8 +113,8 @@ Fin de transmission"
     <div class="window-header">
        <div class="window-header--filter">
         <div class="window-header--filter__text">OFF</div>
-        <label for="filter-dcv">
-          <input type="checkbox" name="dcvfilter" id="filter-dcv-file">
+        <label for="filter-dcv-file">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-file" class="filter-dcv-toggle">
           <span class="slider round"></span>
         </label>
         <div class="window-header--filter__text">ON</div>
@@ -111,13 +122,82 @@ Fin de transmission"
       <span class="window-title">Rapport</span>
       <button class="close-btn">X</button>
     </div>
-    <div class="window-content">
-     <p class="window-content--text">Nous avons eu la surprise du contact d'un certain agent du nom de "Seven", de sa présentation. Il refuse de dénoncer son vrai nom pour l'instant, mais il nous fait part de plusieurs choses intéressantes, notamment qu'il vient de l'Ouest et qu'il fait partie d'une Task Force classifiée, qui s'occupe de la recherche et le développement d'une arme secrète utilisant l'élément 74. Si ce qu'il dit est véridique, il pourrait être un atout considérable à l'ascension de l'Est.</p>
+
+    <div class="window-content spotlight-container text-spotlight">
+    
+    <div class="text-layer text-normal">
+      <p class="window-content--text">
+        Nous avons eu la surprise du contact d'un certain agent du nom de <span class="classified">"Seven"</span>, de sa présentation. Il refuse de dénoncer son vrai nom pour l'instant, mais il nous fait part de plusieurs choses intéressantes, notamment qu'il vient de l'Ouest et qu'il fait partie d'une Task Force classifiée, qui s'occupe de la recherche et le développement d'une arme secrète utilisant <span class="classified">l'élément 74</span>. <span class="classified">N'aimant pas le mode de vie de l'Ouest,</span> il souhaite nous prêter allégance. Si ce qu'il dit est véridique, il pourrait être un atout considérable à l'ascension de l'Est.
+      </p>
+    </div>
+
+    <div class="text-layer text-secret">
+      <p class="window-content--text">
+        Nous avons eu la surprise du contact d'un certain agent du nom de <span class="declassified">"Seven"</span>, de sa présentation. Il refuse de dénoncer son vrai nom pour l'instant, mais il nous fait part de plusieurs choses intéressantes, notamment qu'il vient de l'Ouest et qu'il fait partie d'une Task Force classifiée, qui s'occupe de la recherche et le développement d'une arme secrète utilisant <span class="declassified">l'élément 74</span>. <span class="declassified">N'aimant pas le mode de vie de l'Ouest,</span> il souhaite nous prêter allégance. Si ce qu'il dit est véridique, il pourrait être un atout considérable à l'ascension de l'Est.
+      </p>
+    </div>
+
+  </div>
+  </section>
+
+  <section class="terminal-window terminal-window--secret hidden-element">
+    <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv-secret">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret" class="filter-dcv-toggle">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
+      <span class="window-title">Rapport n°2</span>
+      <button class="close-btn">X</button>
+    </div>
+    <div class="window-content spotlight-container text-spotlight">
+    <div class="text-layer text-normal">
+      <p class="window-content--text">Le commandement soviétique doute encore de la loyauté absolue de 'Seven'. Il n'a pas envie de risquer l'Est de manière inutile. "Seven" a donc proposé une garantie. Pour prouver son allégeance, il s'engage à nous livrer <span class="classified">un agent opérationnel de l'Ouest</span>, vivant, avec ses codes d'accès. Nous attendons que le spécimen vienne bien à nous. Une fois vérifié, le commandant approuvera avec certitude la loyauté de "Seven" envers l'Est. Lancement du projet Fallguy. </p>
+    </div>
+    <div class="text-layer text-secret">
+      <p class="window-content--text">Le commandement soviétique doute encore de la loyauté absolue de 'Seven'. Il n'a pas envie de risquer l'Est de manière inutile. "Seven" a donc proposé une garantie. Pour prouver son allégeance, il s'engage à nous livrer <span class="declassified">un agent opérationnel de l'Ouest</span>, vivant, avec ses codes d'accès. Nous attendons que le spécimen vienne bien à nous. Une fois vérifié, le commandant approuvera avec certitude la loyauté de "Seven" envers l'Est. Lancement du projet Fallguy. </p>
+    </div>
+    </div>
+  </section>
+
+   <section class="terminal-window terminal-window--secret__two hidden-element">
+    <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv-secret-two">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-two" class="filter-dcv-toggle">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
+      <span class="window-title">Rapport ennemi</span>
+      <button class="close-btn">X</button>
+    </div>
+
+    <div class="window-content spotlight-container text-spotlight">
+    <div class="text-layer text-normal">
+      <p class="window-content--text">L'Agent "Four" ne doit sous aucun prétexte être informé de la réalité de cette opération. L'Agent "Seven" ne nous a jamais trahis. Son infiltration au sein du complexe scientifique de la Stasi est vitale pour sécuriser les isotopes de l'Élément 74 avant l'Est. Cependant, le KGB exige une preuve de sang pour valider l'allégeance de "Seven". Ils ont exigé qu'il leur livre un officier traitant occidental de haut rang. "Four" est le bouc émissaire parfait. Son enquête obstinée et sa conviction d'être sur la bonne piste donneront aux Soviétiques l'illusion d'une capture légitime. C'est aussi l'occasion idéale de faire dérouter l'opération Fallguy. C'est précisément sa loyauté qui causera sa perte. Dès que "Four" aura pris connaissance de ce fichier, considérez-le comme compromis et radié de nos listes. Coupez toutes ses communications. Désactivez ses codes d'extraction. La Stasi est déjà en route vers sa position actuelle. Que son sacrifice permette à l'Ouest de protéger notre mode de vie.</p>
+    </div>
+    <div class="text-layer text-secret">
+      <p class="window-content--text">L'Agent "Four" ne doit sous aucun prétexte être informé de la réalité de cette opération. L'Agent "Seven" ne nous a jamais trahis. Son infiltration au sein du complexe scientifique de la Stasi est vitale pour sécuriser les isotopes de l'Élément 74 avant l'Est. Cependant, le KGB exige une preuve de sang pour valider l'allégeance de "Seven". Ils ont exigé qu'il leur livre un officier traitant occidental de haut rang. "Four" est le bouc émissaire parfait. Son enquête obstinée et sa conviction d'être sur la bonne piste donneront aux Soviétiques l'illusion d'une capture légitime. C'est aussi l'occasion idéale de faire dérouter l'opération Fallguy. C'est précisément sa loyauté qui causera sa perte. Dès que "Four" aura pris connaissance de ce fichier, considérez-le comme compromis et radié de nos listes. Coupez toutes ses communications. Désactivez ses codes d'extraction. La Stasi est déjà en route vers sa position actuelle. Que son sacrifice permette à l'Ouest de protéger notre mode de vie.</p>
+    </div>
     </div>
   </section>
 
   <footer class="terminal-footer">
-
+  <div class="footer-text">Raison de la défection : </div>
+      
+      <div class="footer-form">
+        <label for="terminal-answer"></label>
+        <div class="terminal-input">
+          <input type="text" id="terminal-answer" autocomplete="off" placeholder="">
+          <button id="submit-answer">ENVOYER</button>
+        </div>
+        <span id="form-feedback" class="feedback-msg"></span>
+    </div>
   </footer>
   
   <ul class="list" data-url="https://web.mayfly.ovh/api.php?type=city&query=b"></ul>

@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 :root {
-  --theme-color: black; /* Vert terminal, tu pourras changer */
+  --theme-color: black; /* A changer par après */
 }
 
 body {
@@ -11,6 +11,9 @@ body {
   background-color: gray;
   color: var(--theme-color);
   font-family: 'Share Tech Mono', monospace;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; 
 }
 
 /* --- BOOT SCREEN --- */
@@ -94,7 +97,7 @@ body {
   margin-right: 1.5vh;
 }
 
-.terminal-icon--image, .terminal-icon--map, .terminal-icon--file {
+.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--secret {
   filter: grayscale(1) contrast(150%);
   width: 80px;
   height: 70px;
@@ -123,9 +126,17 @@ body {
   flex-direction: column;
 }
 
-.terminal-window--image { top: 15%; left: 10%; }
-.terminal-window--map { top: 20%; left: 25%; }
-.terminal-window--file { top: 25%; left: 40%; }
+.terminal-window--image { 
+  top: 15%; left: 10%; 
+}
+
+.terminal-window--map { 
+  top: 20%; left: 25%; 
+}
+
+.terminal-window--file, .terminal-window--secret, .terminal-window--secret__two { 
+  top: 25%; left: 40%; 
+}
 
 .window-header {
   background-color: rgb(77, 77, 77);
@@ -178,17 +189,225 @@ body {
   object-fit: contain;
 }
 
+/* ---DESIGN BOUTON ---*/
 
-/* --- FOOTER --- */
-.terminal-footer {
-    position: relative;
-    background-color: #fbd2f6;
-    color: #8a4484;
-    margin-top: auto;
-    padding: 20px 10px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    z-index: 0;
+.window-header--filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
 }
 
+/* BOITE DU BOUTON */
+.window-header--filter label {
+  position: relative;
+  display: inline-block;
+  width: 44px;  
+  height: 22px; 
+}
+
+/* --- SERT A CACHER LA CASE FILTER --- */
+.filter-dcv-toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute; 
+}
+
+/* --- FOND DU SLIDER --- */
+.slider {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #555;
+  border-radius: 22px; 
+  cursor: pointer;
+  transition: 0.3s; 
+}
+
+/* --- LE BOUTON AVANT --- */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--theme-color, #33ff33);
+  border-radius: 50%; 
+  transition: 0.3s;
+}
+
+
+/* --- ANIM BOUTON VERS LA DROITE --- */
+.filter-dcv-toggle:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+
+
+/* --- L'EFFET VISUEL SUR LE CONTENU --- */
+
+.window-content > * {
+  transition: all 0.5s ease;
+}
+
+/* --- SYSTÈME DE LAMPE TORCHE EN HOVER --- */
+
+.spotlight-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Variables par défaut pour le centre du cercle */
+  --x: 50%;
+  --y: 50%;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.secret-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none; /* Empêche l'image de bloquer la souris */
+  
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  
+  /* FOLLOW LOUPE A LA SOURIS SUR IMAGE */
+  -webkit-mask-image: radial-gradient(circle 120px at var(--x) var(--y), black 100%, transparent 100%);
+  mask-image: radial-gradient(circle 120px at var(--x) var(--y), black 100%, transparent 100%);
+}
+
+/* Quand le bouton est sur ON, l'image secrète devient visible (mais coupée par le masque) */
+.spotlight-container.is-revealing .secret-layer {
+  opacity: 1;
+}
+
+.window-content.text-spotlight {
+  padding: 0; 
+  align-items: flex-start; 
+}
+
+/* Applique le padding aux deux couches de texte */
+.text-layer {
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Cache la couche 2 et applique le masque en forme de cercle */
+.text-secret {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  /* FOLLOW LOUPE A LA SOURIS SUR LE TEXTE */
+  -webkit-mask-image: radial-gradient(circle 80px at var(--x) var(--y), black 80%, transparent 100%);
+  mask-image: radial-gradient(circle 80px at var(--x) var(--y), black 80%, transparent 100%);
+}
+
+/* ACTIVATION MASQUE FILTRE */
+.spotlight-container.is-revealing .text-secret {
+  opacity: 1;
+}
+
+/* --- LE DESIGN DE LA CENSURE --- */
+
+.classified {
+  background-color: var(--theme-color, #33ff33);
+  color: var(--theme-color, #33ff33); 
+  border-radius: 2px;
+  user-select: none;
+}
+
+.declassified {
+  color: #ff3333;
+  background-color: #111; 
+}
+
+/* Positionne la nouvelle fenêtre secrète */
+.terminal-window--secret, .terminal-window--secret__two {
+  top: 30%; left: 30%;
+}
+
+/* --- ÉLÉMENTS CACHÉS (POUR LE JS) --- */
+.hidden-element {
+  display: none !important;
+  opacity: 0;
+}
+
+
+.terminal-input {
+  display: flex;
+  gap: 10px;
+}
+
+.terminal-input input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #8a4484;
+  color: #8a4484;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  text-transform: uppercase;
+  width: 200px;
+}
+
+.terminal-input button {
+  background-color: #8a4484;
+  color: #fbd2f6;
+  border: none;
+  padding: 4px 12px;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.terminal-input button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.feedback-msg {
+  font-size: 0.8rem;
+  font-weight: bold;
+  min-width: 150px;
+}
+
+.feedback-msg.error { 
+  color: red; }
+
+.feedback-msg.success { 
+  color: green; }
+
+/* --- FOOTER --- */
+
+.terminal-footer {
+  position: relative;
+  background-color: #fbd2f6;
+  color: #8a4484;
+  margin-top: auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.footer-form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
