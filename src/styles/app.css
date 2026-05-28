@@ -412,3 +412,37 @@ body {
   align-items: center;
   gap: 15px;
 }
+
+/* --- MOBILE --- */
+.mobile-warning{
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    
+    #boot-screen, .terminal, .terminal-window, .terminal-footer, .list {
+        display: none !important;
+    }
+
+    .mobile-warning {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: gray;
+        color: black; 
+        font-family: 'Share Tech Mono', Courier, monospace;
+        text-align: center;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    .mobile-warning p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        border: 1px solid black;
+        padding: 20px;
+    }
+}
