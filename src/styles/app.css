@@ -282,8 +282,8 @@ body {
   transition: opacity 0.3s ease;
   
   /* FOLLOW LOUPE A LA SOURIS SUR IMAGE */
-  -webkit-mask-image: radial-gradient(circle 120px at var(--x) var(--y), black 100%, transparent 100%);
-  mask-image: radial-gradient(circle 120px at var(--x) var(--y), black 100%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 110px at var(--x) var(--y), black 100%, transparent 100%);
+  mask-image: radial-gradient(circle 110px at var(--x) var(--y), black 100%, transparent 100%);
 }
 
 /* Quand le bouton est sur ON, l'image secrète devient visible (mais coupée par le masque) */
@@ -313,8 +313,8 @@ body {
   transition: opacity 0.3s ease;
   
   /* FOLLOW LOUPE A LA SOURIS SUR LE TEXTE */
-  -webkit-mask-image: radial-gradient(circle 80px at var(--x) var(--y), black 80%, transparent 100%);
-  mask-image: radial-gradient(circle 80px at var(--x) var(--y), black 80%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 50px at var(--x) var(--y), black 80%, transparent 100%);
+  mask-image: radial-gradient(circle 50px at var(--x) var(--y), black 80%, transparent 100%);
 }
 
 /* ACTIVATION MASQUE FILTRE */
