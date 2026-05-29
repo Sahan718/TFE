@@ -257,3 +257,40 @@
       }
     });
   }
+
+  // Event listener au clic des fenetres (pr determiner si oui ou non c'est le bon par après)
+  icons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      const targetName = icon.getAttribute('data-target');
+      const windowSelector = `.terminal-window--${targetName}`;
+      const targetWindow = document.querySelector(windowSelector);
+      
+      if (targetWindow) {
+        targetWindow.classList.add('active');
+        zIndexCounter++;
+        targetWindow.style.zIndex = zIndexCounter;
+
+        // DÉCLENCHEUR DU SHUTDOWN FINAL
+
+        // Si la fenêtre ouverte est le rapport secret
+        if (targetName === 'secret__two') {
+          
+          // Compte à rebours de 20 secondes (20000 ms) 
+          setTimeout(() => {
+            const shutdownScreen = document.getElementById('shutdown-screen');
+            
+            if (shutdownScreen) {
+              // Retire la classe hidden-element pour montrer 
+              shutdownScreen.classList.remove('hidden-element');
+              
+              // Apparition avec GSAP
+              gsap.fromTo(shutdownScreen, 
+                { autoAlpha: 0, scale: 1.1 }, 
+                { autoAlpha: 1, scale: 1, duration: 0.2, ease: "power4.in" }
+              );
+            }
+          }, 20000); 
+        }
+      }
+    });
+  });
