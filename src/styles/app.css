@@ -53,7 +53,7 @@ body::after {
   100% { opacity: 1; }
 }
 
-/* --- BOOT SCREEN --- */
+/*  BOOT SCREEN  */
 .terminal-boot {
   position: fixed;
   top: 0; 
@@ -91,14 +91,14 @@ body::after {
 .boot-briefing {
   font-size: 1.1rem;
   color: var(--theme-color);
-  line-height: 1.8; /* Aère les paragraphes */
+  line-height: 1.8; 
   margin: 0 auto 30px auto;
   min-height: 150px;
   white-space: pre-wrap; /* Garde tes sauts de ligne HTML */
   max-width: 650px;
   text-align: left;
   padding: 20px 30px;
-  visibility: hidden; /* Caché au début pour GSAP */
+  visibility: hidden; 
 }
 
 .boot-btn {
@@ -109,7 +109,7 @@ body::after {
   font-family: inherit;
   font-size: 1.2rem;
   cursor: pointer;
-  visibility: hidden; /* Caché au début pour GSAP */
+  visibility: hidden; 
   opacity: 0;
 }
 
@@ -117,7 +117,7 @@ body::after {
   background: #0a0a0a;
 }
 
-/* --- BUREAU OS --- */
+/*  BUREAU OS  */
 .terminal {
   display: flex;
   flex-wrap: wrap;
@@ -138,10 +138,10 @@ body::after {
   color: var(--theme-color);
   text-align: center;
   justify-content: center;
+  width: 100%;  
 }
 
 .terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--secret, .terminal-icon--secret__two {
-  filter: grayscale(1) contrast(150%);
   width: 80px;
   height: 70px;
   margin: 10px;
@@ -154,7 +154,7 @@ body::after {
   cursor: pointer;
 }
 
-/* --- FENÊTRES --- */
+/*  FENÊTRES  */
 .terminal-window {
   display: none;
   position: absolute;
@@ -233,7 +233,7 @@ body::after {
   object-fit: contain;
 }
 
-/* ---DESIGN BOUTON ---*/
+/* DESIGN BOUTON */
 
 .window-header--filter {
   display: flex;
@@ -250,7 +250,7 @@ body::after {
   height: 22px; 
 }
 
-/* --- SERT A CACHER LA CASE FILTER --- */
+/*  SERT A CACHER LA CASE FILTER  */
 .filter-dcv-toggle {
   opacity: 0;
   width: 0;
@@ -258,7 +258,7 @@ body::after {
   position: absolute; 
 }
 
-/* --- FOND DU SLIDER --- */
+/*  FOND DU SLIDER  */
 .slider {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -267,7 +267,7 @@ body::after {
   transition: 0.3s; 
 }
 
-/* --- LE BOUTON AVANT --- */
+/*  LE BOUTON AVANT  */
 .slider::before {
   content: "";
   position: absolute;
@@ -280,20 +280,20 @@ body::after {
 }
 
 
-/* --- ANIM BOUTON VERS LA DROITE --- */
+/*  ANIM BOUTON VERS LA DROITE  */
 .filter-dcv-toggle:checked + .slider::before {
   transform: translateX(22px);
 }
 
 
 
-/* --- L'EFFET VISUEL SUR LE CONTENU --- */
+/*  L'EFFET VISUEL SUR LE CONTENU  */
 
 .window-content > * {
   transition: all 0.5s ease;
 }
 
-/* --- SYSTÈME DE LAMPE TORCHE EN HOVER --- */
+/*  SYSTÈME DE LAMPE TORCHE EN HOVER  */
 
 .spotlight-container {
   position: relative;
@@ -323,8 +323,8 @@ body::after {
   transition: opacity 0.3s ease;
   
   /* FOLLOW LOUPE A LA SOURIS SUR IMAGE */
-  -webkit-mask-image: radial-gradient(circle 110px at var(--x) var(--y), #171717 100%, transparent 100%);
-  mask-image: radial-gradient(circle 110px at var(--x) var(--y), #171717 100%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 60px at var(--x) var(--y), #171717 100%, transparent 100%);
+  mask-image: radial-gradient(circle 60px at var(--x) var(--y), #171717 100%, transparent 100%);
 }
 
 /* Quand le bouton est sur ON, l'image secrète devient visible (mais coupée par le masque) */
@@ -354,8 +354,8 @@ body::after {
   transition: opacity 0.3s ease;
   
   /* FOLLOW LOUPE A LA SOURIS SUR LE TEXTE */
-  -webkit-mask-image: radial-gradient(circle 50px at var(--x) var(--y), #0a0a0a 80%, transparent 100%);
-  mask-image: radial-gradient(circle 50px at var(--x) var(--y), #0a0a0a 80%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 30px at var(--x) var(--y), #0a0a0a 80%, transparent 100%);
+  mask-image: radial-gradient(circle 30px at var(--x) var(--y), #0a0a0a 80%, transparent 100%);
 }
 
 /* ACTIVATION MASQUE FILTRE */
@@ -363,7 +363,7 @@ body::after {
   opacity: 1;
 }
 
-/* --- LE DESIGN DE LA CENSURE --- */
+/*  LE DESIGN DE LA CENSURE  */
 
 .classified {
   background-color: var(--theme-color, #33ff33);
@@ -383,7 +383,7 @@ body::after {
   left: 30%;
 }
 
-/* --- ÉLÉMENTS CACHÉS (POUR LE JS) --- */
+/*  ÉLÉMENTS CACHÉS (POUR LE JS)  */
 .hidden-element {
   display: none !important;
   opacity: 0;
@@ -435,7 +435,7 @@ body::after {
 .feedback-msg.success { 
   color: var(--theme-color); }
 
-/* --- FOOTER --- */
+/*  FOOTER  */
 
 .terminal-footer {
   position: relative;
@@ -455,7 +455,7 @@ body::after {
   gap: 15px;
 }
 
-/* --- ECRAN SHUTDOWN ---*/
+/*  ECRAN SHUTDOWN */
 
 #shutdown-screen {
   position: fixed;
@@ -496,7 +496,7 @@ body::after {
   50%, 100% { opacity: 0; }
 }
 
-/* --- MOBILE --- */
+/*  MOBILE  */
 
 .mobile-warning{
   display: none;

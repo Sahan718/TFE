@@ -39,14 +39,14 @@
   })
   .to(bootBtn, {
     autoAlpha: 1, // Fait apparaître le bouton avec un fondu
-    duration: 0.5
+    duration: 0
   }, "+=0.3");
 
   // Fermeture du boot screen au clic du bouton
   bootBtn.addEventListener('click', () => {
     gsap.to(bootScreen, {
       autoAlpha: 0, // Fondu noir
-      duration: 1,
+      duration: 0,
       onComplete: () => {
         bootScreen.style.display = 'none'; // Détruit l'écran de chargement
       }
@@ -195,7 +195,7 @@
         if (secretIcon) {
           secretIcon.classList.remove('hidden-element');
           secretIcon.style.display = "flex"; 
-          gsap.fromTo(secretIcon, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1 });
+          gsap.fromTo(secretIcon, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 });
         }
         if (secretWindow) {
           secretWindow.classList.remove('hidden-element');
@@ -228,7 +228,7 @@
         if (iconEtape2) {
           iconEtape2.classList.remove('hidden-element');
           iconEtape2.style.display = "flex";
-          gsap.fromTo(iconEtape2, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1 });
+          gsap.fromTo(iconEtape2, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 });
         }
         if (winEtape2) {
           winEtape2.classList.remove('hidden-element');
