@@ -171,22 +171,40 @@
 
   const submitBtn = document.getElementById('submit-answer');
   const inputField = document.getElementById('terminal-answer'); 
-  const feedbackMsg = document.getElementById('form-feedback');
-  const footerQuestion = document.querySelector('.footer-text'); // On cible la question dans le footer
+  const footerQuestion = document.querySelector('.footer-text'); 
+  const terminalNotification = document.getElementById('terminal-notification');
+  const terminalNotificationText = document.getElementById('terminal-notification-text');
 
-  let etapeActuelle = 1; // On initialise le jeu à la première étape
+  let etapeActuelle = 1; 
+
+  function showCenterMessage(text, statusClass) {
+    if (!terminalNotification) return;
+
+    // On change le texte et la couleur (success/error)
+    terminalNotificationText.textContent = text;
+    terminalNotification.className = statusClass; 
+    terminalNotification.classList.remove('hidden-element');
+    
+    // Animation pop-up
+    gsap.fromTo(terminalNotification, 
+      { autoAlpha: 0, scale: 0.9 }, 
+      { autoAlpha: 1, scale: 1, duration: 0.1 }
+    );
+
+    // Fait disparaître le message après 2 secondes
+    setTimeout(() => {
+      gsap.to(terminalNotification, { autoAlpha: 0, duration: 0.2 });
+    }, 2000);
+  }
 
   function checkAnswer() {
     const userAnswer = inputField.value.trim().toUpperCase();
 
-
     // STEP 1 : RAISON DE LA DÉFECTION
-
     if (etapeActuelle === 1) {
       if (userAnswer === "MODE DE VIE") {
         
-        feedbackMsg.textContent = "ACCÈS AUTORISÉ";
-        feedbackMsg.className = "feedback-msg success"; 
+        showCenterMessage("INFORMATION FIABLE", "success");
         
         // 1. On affiche l'icône Fallguy
         const secretIcon = document.querySelector('.terminal-icon--secret');
@@ -202,14 +220,15 @@
         }
 
         // STEP 2 SI BON
-        inputField.value = ""; // Vide le champ
-        footerQuestion.textContent = "But du projet Fallguy : "; // Change la question
-        etapeActuelle = 2; // Le jeu passe au niveau 2
+        inputField.value = ""; 
+        footerQuestion.textContent = "But du projet Fallguy : "; 
+        etapeActuelle = 2; 
 
       } else {
-        feedbackMsg.textContent = "ACCÈS REFUSÉ";
-        feedbackMsg.className = "feedback-msg error"; 
+        showCenterMessage("INFORMATION ERRONÉE", "error");
         inputField.value = "";
+        // Le champ de texte tremble si c'est faux !
+        gsap.fromTo(inputField, { x: 5 }, { x: 0, duration: 0.05, repeat: 4, yoyo: true });
       }
     }
     
@@ -218,8 +237,7 @@
       // Réponse 
       if (userAnswer === "LIVRER UN AGENT DE L'OUEST") {
         
-        feedbackMsg.textContent = "ACCÈS AUTORISÉ";
-        feedbackMsg.className = "feedback-msg success"; 
+        showCenterMessage("INFORMATION FIABLE", "success");
         
         // 1. On affiche la nouvelle icône pour la 2ème fenetre
         const iconEtape2 = document.querySelector('.terminal-icon--secret__two');
@@ -241,9 +259,10 @@
         footerQuestion.textContent = "SYSTÈME ENTIÈREMENT DÉVERROUILLÉ.";
 
       } else {
-        feedbackMsg.textContent = "ACCÈS REFUSÉ";
-        feedbackMsg.className = "feedback-msg error"; 
+        showCenterMessage("INFORMATION ERRONÉE", "error");
         inputField.value = "";
+        // Le champ tremble
+        gsap.fromTo(inputField, { x: 5 }, { x: 0, duration: 0.05, repeat: 4, yoyo: true });
       }
     }
   }

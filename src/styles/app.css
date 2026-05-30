@@ -91,14 +91,14 @@ body::after {
 .boot-briefing {
   font-size: 1.1rem;
   color: var(--theme-color);
-  line-height: 1.8; 
+  line-height: 1.8;
   margin: 0 auto 30px auto;
   min-height: 150px;
   white-space: pre-wrap; /* Garde tes sauts de ligne HTML */
   max-width: 650px;
   text-align: left;
   padding: 20px 30px;
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 .boot-btn {
@@ -109,7 +109,7 @@ body::after {
   font-family: inherit;
   font-size: 1.2rem;
   cursor: pointer;
-  visibility: hidden; 
+  visibility: hidden;
   opacity: 0;
 }
 
@@ -138,7 +138,7 @@ body::after {
   color: var(--theme-color);
   text-align: center;
   justify-content: center;
-  width: 100%;  
+  width: 100%;
 }
 
 .terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--secret, .terminal-icon--secret__two {
@@ -389,10 +389,44 @@ body::after {
   opacity: 0;
 }
 
+/* MESSAGE DU INPUT */
+
+#terminal-notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9500; 
+  background-color: var(--bg-color); 
+  padding: 30px 60px;
+  text-align: center;
+  border: 2px solid;
+}
+
+#terminal-notification h2 {
+  margin: 0;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+#terminal-notification.success {
+  border-color: var(--theme-color);
+  color: var(--theme-color);
+  box-shadow: 0 0 30px rgba(0, 255, 128, 0.3);
+}
+
+#terminal-notification.error {
+  border-color: #ff3333; 
+  color: #ff3333;
+  box-shadow: 0 0 30px rgba(255, 51, 51, 0.3);
+}
+
+
 
 .terminal-input {
   display: flex;
-  gap: 10px;
+  gap: 40px;
 }
 
 .terminal-input input {
@@ -401,10 +435,10 @@ body::after {
   border-bottom: 2px solid var(--theme-color);
   color: var(--theme-color);
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   outline: none;
   text-transform: uppercase;
-  width: 200px;
+  width: 220px;
 }
 
 .terminal-input button {
@@ -413,6 +447,7 @@ body::after {
   border: none;
   padding: 4px 12px;
   font-family: inherit;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
@@ -438,21 +473,27 @@ body::after {
 /*  FOOTER  */
 
 .terminal-footer {
-  position: relative;
+  position: fixed; 
+  bottom: 0; 
+  left: 0;
+  width: 100%; 
+  box-sizing: border-box; 
   background-color: #0a0a0a;
   color: var(--theme-color);
-  margin-top: auto;
-  padding: 10px 20px;
+  padding: 90px 60px 60px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
 }
 
 .footer-form {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.footer-text{
+  font-size: 37px;
 }
 
 /*  ECRAN SHUTDOWN */
