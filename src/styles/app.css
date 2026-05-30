@@ -17,7 +17,7 @@ body {
   flex-direction: column; 
   background-image: url(../assets/images/Emblem_of_the_Stasi.svg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center 70px;
   background-size: 400px;
 }
 
@@ -484,7 +484,7 @@ body::after {
   box-sizing: border-box; 
   background-color: #0a0a0a;
   color: var(--theme-color);
-  padding: 90px 60px 60px 60px;
+  padding: 70px 60px 60px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
