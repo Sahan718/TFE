@@ -484,9 +484,10 @@ body::after {
   box-sizing: border-box; 
   background-color: #0a0a0a;
   color: var(--theme-color);
+  border-top: var(--theme-color) 1px solid ;
   padding: 70px 60px 60px 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -498,6 +499,38 @@ body::after {
 
 .footer-text{
   font-size: 37px;
+}
+
+.footer-input {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-decor-group{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 60px;
+}
+
+.footer-decor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  opacity: 0.7; 
+  font-family: 'Share Tech Mono', monospace;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.decor-separator {
+  color: #555; 
+}
+
+.highlight {
+  color: #fff; 
 }
 
 /*  ECRAN SHUTDOWN */
