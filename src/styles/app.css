@@ -452,28 +452,15 @@ body::after {
   border: none;
   padding: 4px 12px;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 .terminal-input button:hover {
   background-color: #000;
   color: var(--theme-color);
 }
-
-.feedback-msg {
-  font-size: 0.8rem;
-  font-weight: bold;
-  min-width: 150px;
-}
-
-.feedback-msg.error { 
-  color: red; }
-
-.feedback-msg.success { 
-  color: var(--theme-color); }
 
 /*  FOOTER  */
 
@@ -499,7 +486,7 @@ body::after {
 }
 
 .footer-text{
-  font-size: 37px;
+  font-size: 33px;
 }
 
 .footer-input {
