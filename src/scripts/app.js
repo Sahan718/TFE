@@ -308,7 +308,7 @@
                 { autoAlpha: 1, scale: 1, duration: 0.2, ease: "power4.in" }
               );
             }
-          }, 20000); 
+          }, 50000); 
         }
       }
     });
