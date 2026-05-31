@@ -313,3 +313,16 @@
       }
     });
   });
+
+
+  const clockElement = document.getElementById('real-time-clock');
+  
+  if (clockElement) {
+    // setInterval exécute le code en boucle toutes les 1000 millisecondes (1 seconde)
+    setInterval(() => {
+      const now = new Date();
+      // On formate l'heure pour qu'elle s'affiche en HH:MM:SS
+      const timeString = now.toLocaleTimeString('fr-FR', { hour12: false });
+      clockElement.textContent = timeString;
+    }, 1000);
+  }

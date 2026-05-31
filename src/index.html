@@ -209,16 +209,29 @@ Fin de transmission"
     <h2 id="terminal-notification-text">MESSAGE</h2>
   </div>
 
-  <footer class="terminal-footer">
-    <div class="footer-text">Raison de la défection : </div>
-        
-    <div class="footer-form">
-      <label for="terminal-answer"></label>
-      <div class="terminal-input">
-        <input type="text" id="terminal-answer" autocomplete="off" placeholder="">
-        <button id="submit-answer">ENVOYER</button>
+ <footer class="terminal-footer">
+    
+    <div class="footer-decor footer-decor-left">
+      <span class="decor-text">E74_ßRtf: <span class="highlight">v1.44</span></span>
+      <span class="decor-separator">|</span>
+    </div>
+
+    <div class="footer-center">
+      <div class="footer-text">Raison de la défection : </div>
+      <div class="footer-form">
+        <label for="terminal-answer"></label>
+        <div class="terminal-input">
+          <input type="text" id="terminal-answer" autocomplete="off" placeholder="">
+          <button id="submit-answer">ENVOYER</button>
+        </div>
       </div>
     </div>
+
+    <div class="footer-decor footer-decor-right">
+      <span class="decor-separator">|</span>
+      <span class="decor-text">SYS_ZEIT: <span id="real-time-clock" class="highlight">00:00:00</span></span>
+    </div>
+
   </footer>
   
   <ul class="list" data-url="https://web.mayfly.ovh/api.php?type=city&query=b"></ul>
