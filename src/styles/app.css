@@ -68,17 +68,18 @@ body::after {
   z-index: 9999;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: flex-start;
 }
 
 .boot-container {
-  width: 80%;
   max-width: 800px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .boot-logs {
-  font-size: 0.9rem;
+  font-size: 13px;
   color: var(--theme-color);
   opacity: 0.6;
   margin-bottom: 20px;
@@ -93,15 +94,15 @@ body::after {
 }
 
 .boot-briefing {
-  font-size: 1.1rem;
+  font-size: 18px;
   color: var(--theme-color);
-  line-height: 1.8;
+  line-height: 1.6;
   margin: 0 auto 30px auto;
   min-height: 150px;
   white-space: pre-wrap; /* Garde tes sauts de ligne HTML */
-  max-width: 650px;
+  max-width: 700px;
   text-align: left;
-  padding: 20px 30px;
+  padding: 0px;
   visibility: hidden;
 }
 
