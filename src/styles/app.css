@@ -15,6 +15,7 @@ body {
   background-repeat: no-repeat;
   background-position: center 70px;
   background-size: 400px;
+  overflow: hidden;
 }
 
 body::before {
@@ -75,7 +76,7 @@ body::after {
 }
 
 .boot-logs {
-  font-size: 13px;
+  font-size: 11px;
   color: var(--theme-color);
   opacity: 0.6;
   margin-bottom: 20px;
@@ -110,7 +111,7 @@ body::after {
   font-family: inherit;
   font-size: 1.2rem;
   cursor: pointer;
-  visibility: hidden;
+  visibility: hidden; 
   opacity: 0;
 }
 
@@ -136,13 +137,12 @@ body::after {
 }
 
 .icon_text {
-  color: var(--theme-color);
   text-align: center;
   justify-content: center;
   width: 100%;
 }
 
-.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--secret, .terminal-icon--secret__two {
+.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--file__two, .terminal-icon--folder, .terminal-icon--video, .terminal-icon--secret, .terminal-icon--secret__two {
   width: 80px;
   height: 70px;
   margin: 10px;
@@ -179,7 +179,7 @@ body::after {
   top: 20%; left: 25%; 
 }
 
-.terminal-window--file, .terminal-window--secret, .terminal-window--secret__two { 
+.terminal-window--file, .terminal-icon--folder, .terminal-window--secret, .terminal-window--secret__two { 
   top: 25%; left: 40%; 
 }
 
@@ -212,7 +212,18 @@ body::after {
   padding: 15px;
   flex-grow: 1;
   color: #000000;
-  background-color: gray;
+  background-color: #b6c89f;
+}
+
+.folder-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+}
+
+.inside-folder {
+  margin: 10px !important; 
 }
 
 .terminal-window--image, .terminal-window--map {
@@ -233,6 +244,7 @@ body::after {
   max-height: 100%;
   object-fit: contain;
 }
+
 
 /* DESIGN BOUTON */
 
