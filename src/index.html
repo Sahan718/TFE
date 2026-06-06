@@ -43,7 +43,7 @@ SECTEUR : BERLIN EST, LICHTENBERG <br>
 STATUT : ACTIF <br><br>
 
 DIRECTIVE : <br>
-Nous avons reçu de nouvelles informations concernant la défection. Vos ordres sont de vérifier les rapports de la Stasi à propos du traître, l'agent "Seven", et de nous les faire parvenir pour protéger notre mode de vie. Une source anonyme nous a également fait mention du projet "Fallguy". En premier lieu, découvrez les raisons de la trahisons de l'agent "Seven". Nous vous tiendrons au courant des prochains objectifs. <br> <br>
+Nous avons reçu de nouvelles informations concernant la défection. Vos ordres sont de vérifier les rapports de la Stasi à propos du traître, l'agent "Seven", et de nous les faire parvenir pour protéger notre mode de vie. En premier lieu, découvrez les raisons de la trahisons de l'agent "Seven". Nous vous tiendrons au courant des prochains objectifs dans des rapports secrets au sein du terminal. <br> <br>
 
 Nous avons mis en place une technologie de filtrage : le DCV. Il vous sera utile lors de la consultation de documents. <br> <br>
 
@@ -67,9 +67,13 @@ Fin de transmission"
       <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file map" class="icon_image">
       <span class="icon_text">Map.png</span>
     </div>
-    <div class="terminal-icon terminal-icon--file" data-target="file">
-      <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
-      <span class="icon_text">Rapport .txt</span>
+     <div class="terminal-icon terminal-icon--video" data-target="video">
+      <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file map" class="icon_image">
+      <span class="icon_text">Berlin.mp4</span>
+    </div>
+    <div class="terminal-icon terminal-icon--folder" data-target="folder">
+      <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de dossier" class="icon_image">
+      <span class="icon_text">Rapports</span>
     </div>
     <div class="terminal-icon terminal-icon--secret hidden-element" data-target="secret">
       <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
@@ -80,6 +84,27 @@ Fin de transmission"
       <span class="icon_text">Rapport_ secret.txt</span>
     </div>
   </main>
+
+  <section class="terminal-window terminal-window--folder">
+    <div class="window-header">
+      <span class="window-title">Rapports</span>
+      <button class="close-btn">X</button>
+    </div>
+    
+    <div class="window-content folder-content">
+ 
+      <div class="terminal-icon terminal-icon--file__two inside-folder" data-target="file__two">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Notes.txt</span>
+      </div>
+      
+      <div class="terminal-icon terminal-icon--file inside-folder" data-target="file">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Rapport.txt</span>
+      </div>
+
+    </div>
+  </section>
 
   <section class="terminal-window terminal-window--image">
     <div class="window-header">
@@ -119,6 +144,16 @@ Fin de transmission"
     </div>
   </section>
 
+  <section class="terminal-window terminal-window--video">
+    <div class="window-header">
+      <span class="window-title">Berlin.mp4</span>
+      <button class="close-btn">X</button>
+    </div>
+    <div class="window-content spotlight-container">
+      <video src="./assets/images/BerlinVideoG.mp4" class="window-content--map layer" autoplay muted controls></video>
+    </div>
+  </section>
+
   <section class="terminal-window terminal-window--file">
     <div class="window-header">
        <div class="window-header--filter">
@@ -129,7 +164,7 @@ Fin de transmission"
         </label>
         <div class="window-header--filter__text">ON</div>
       </div>
-      <span class="window-title">Rapport.txt</span>
+      <span class="window-title">Rapport2.txt</span>
       <button class="close-btn">X</button>
     </div>
 
@@ -149,6 +184,38 @@ Fin de transmission"
 
   </div>
   </section>
+
+   <section class="terminal-window terminal-window--file__two">
+    <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv-file-two">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-file-two" class="filter-dcv-toggle">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
+      <span class="window-title">Rapport.txt</span>
+      <button class="close-btn">X</button>
+    </div>
+
+    <div class="window-content spotlight-container text-spotlight">
+    
+    <div class="text-layer text-normal">
+      <p class="window-content--text">
+         Qui aurait cru que des <span class="classified">signes extraterrestres</span> existerait au sein de notre univers, mais surtout que l'on fasse cette découverte assez tôt. Il y a à peu près une quinzaine d'années, l'atterissage de ce que les américains croyait être un ballon-sonde dans la ville de Roswell, s'est avéré être <span class="classified">un minerai extraterrestre</span> qu'ils ont nommé <span class="classified">"Element 74".</span> Ce <span class="classified">minerai</span> a ouvert des portes pour une avancée tehnologique redoutable, ce qui les a permis d'avoir une avance sur nous, les Soviétiques. Grâce à des <span class="classified">agents infiltrés aux Etats-Unis,</span> nous avons réussi à mettre la main sur une partie de ce minerai à l'époque, ce qui fait que nous avons en partie annulé cet avantage. Les américains ne vont s'arrêter à rien pour gagner, et nous non plus. Selon le commandant, il y aurait une <span class="classified">personne qui pourrait pencher la course à l'armement en notre faveur.</span> J'attendrai de ses nouvelles. 
+      </p>
+    </div>
+
+    <div class="text-layer text-secret">
+      <p class="window-content--text">
+          Qui aurait cru que des <span class="declassified">signes extraterrestres</span> existerait au sein de notre univers, mais surtout que l'on fasse cette découverte assez tôt. Il y a à peu près une quinzaine d'années, l'atterissage de ce que les américains croyait être un ballon-sonde dans la ville de Roswell, s'est avéré être <span class="declassified">un minerai extraterrestre</span> qu'ils ont nommé <span class="declassified">"Element 74".</span> Ce <span class="declassified">minerai</span> a ouvert des portes pour une avancée tehnologique redoutable, ce qui les a permis d'avoir une avance sur nous, les Soviétiques. Grâce à des <span class="declassified">agents infiltrés aux Etats-Unis,</span> nous avons réussi à mettre la main sur une partie de ce minerai à l'époque, ce qui fait que nous avons en partie annulé cet avantage. Les américains ne vont s'arrêter à rien pour gagner, et nous non plus. Selon le commandant, il y aurait une <span class="declassified">personne qui pourrait pencher la course à l'armement en notre faveur.</span> J'attendrai de ses nouvelles. 
+      </p>
+    </div>
+
+  </div>
+  </section>
+
 
   <section class="terminal-window terminal-window--secret hidden-element">
     <div class="window-header">
