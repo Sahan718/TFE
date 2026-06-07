@@ -142,7 +142,7 @@ body::after {
   width: 100%;
 }
 
-.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--file__two, .terminal-icon--folder, .terminal-icon--video, .terminal-icon--secret, .terminal-icon--secret__two {
+.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--file__two, .terminal-icon--folder, .terminal-icon--video, .terminal-icon--secret, .terminal-icon--secret__two, .terminal-icon--secret__three {
   width: 80px;
   height: 70px;
   margin: 10px;
@@ -179,7 +179,7 @@ body::after {
   top: 20%; left: 25%; 
 }
 
-.terminal-window--file, .terminal-icon--folder, .terminal-window--secret, .terminal-window--secret__two { 
+.terminal-window--file, .terminal-icon--folder, .terminal-window--secret, .terminal-window--secret__two, .terminal-icon--secret__three {  
   top: 25%; left: 40%; 
 }
 

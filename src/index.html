@@ -81,6 +81,10 @@ Fin de transmission"
     </div>
     <div class="terminal-icon terminal-icon--secret__two hidden-element" data-target="secret__two">
       <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+      <span class="icon_text">Rapport_ Est.txt</span>
+    </div>
+    <div class="terminal-icon terminal-icon--secret__three hidden-element" data-target="secret__three">
+      <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
       <span class="icon_text">Rapport_ secret.txt</span>
     </div>
   </main>
@@ -330,14 +334,37 @@ Fin de transmission"
       <img src="./assets/images/Group 5.webp" alt="Test image 2" class="window-content--map secret-layer">
     </div>
   </section>
-  
 
-   <section class="terminal-window terminal-window--secret__two hidden-element">
+     <section class="terminal-window terminal-window--secret__two hidden-element">
+    <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv-secret-two">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-two" class="filter-dcv-toggle">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
+      <span class="window-title">Rapport_secret_Est.txt</span>
+      <button class="close-btn">X</button>
+    </div>
+
+    <div class="window-content spotlight-container text-spotlight">
+    <div class="text-layer text-normal">
+      <p class="window-content--text">Le commandement soviétique doute encore de la loyauté absolue de <span class="classified">"Seven".</span> Il n'a pas envie de risquer l'Est de manière inutile. <span class="classified">"Seven"</span> a donc proposé une garantie, qu'on a décidé de nommer <span class="classified">"Projet Fallguy".</span> Pour prouver son allégeance, il s'engage à nous <span class="classified">livrer un agent de l'Ouest</span>, vivant, avec ses codes d'accès. Nous attendons que le spécimen vienne bien à nous. Une fois vérifié, le commandant approuvera avec certitude la loyauté de <span class="classified">"Seven"</span> envers l'Est. <span class="classified">Lancement du projet Fallguy.</p>
+    </div>
+    <div class="text-layer text-secret">
+      <p class="window-content--text">Le commandement soviétique doute encore de la loyauté absolue de <span class="declassified">"Seven".</span> Il n'a pas envie de risquer l'Est de manière inutile. <span class="declassified">"Seven"</span> a donc proposé une garantie, qu'on a décidé de nommer <span class="classified">"Projet Fallguy".</span> Pour prouver son allégeance, il s'engage à nous <span class="declassified">livrer un agent de l'Ouest</span>, vivant, avec ses codes d'accès. Nous attendons que le spécimen vienne bien à nous. Une fois vérifié, le commandant approuvera avec certitude la loyauté de <span class="declassified">"Seven"</span> envers l'Est. <span class="declassified">Lancement du projet Fallguy.</p>
+    </div>
+    </div>
+  </section>
+
+   <section class="terminal-window terminal-window--secret__three hidden-element">
     <div class="window-header">
        <div class="window-header--filter">
         <div class="window-header--filter__text">OFF</div>
-        <label for="filter-dcv-secret-two">
-          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-two" class="filter-dcv-toggle">
+        <label for="filter-dcv-secret-three">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-three" class="filter-dcv-toggle">
           <span class="slider round"></span>
         </label>
         <div class="window-header--filter__text">ON</div>
@@ -348,10 +375,10 @@ Fin de transmission"
 
     <div class="window-content spotlight-container text-spotlight">
     <div class="text-layer text-normal">
-      <p class="window-content--text">L'Agent <span class="classified">"Four"</span> ne doit sous aucun prétexte être informé de la réalité de cette opération. <span class="classified">L'Agent "Seven" ne nous a jamais trahis.</span> Son infiltration au sein du complexe scientifique de la Stasi est vitale <span class="classified">pour sécuriser les isotopes de l'Élément 74 avant l'Est.</span> Cependant, le KGB exige une preuve de sang pour valider l'allégeance de "Seven". Ils ont exigé qu'il leur livre un officier traitant occidental de haut rang. <span class="classified">"Four" est le bouc émissaire parfait.</span> Son enquête obstinée et sa conviction d'être sur la bonne piste donneront aux Soviétiques l'illusion d'une capture légitime. C'est aussi <span class="classified">l'occasion idéale de faire dérouter l'opération Fallguy.</span> C'est précisément sa loyauté qui causera sa perte. Dès que <span class="classified">"Four"</span> aura pris connaissance de ce fichier, considérez-le comme <span class="classified">compromis et radié de nos listes.</span> Coupez toutes ses communications. Désactivez ses codes d'extraction. La Stasi est déjà en route vers sa position actuelle. <span class="classified">Que son sacrifice permette à l'Ouest de protéger notre mode de vie.</span></p>
+      <p class="window-content--text">L'Agent <span class="classified">"Four"</span> ne doit sous aucun prétexte être informé de la réalité de cette opération. <span class="classified">L'Agent "Seven" ne nous a jamais trahis.</span> Son infiltration au sein du complexe scientifique de la Stasi est vitale <span class="classified">pour sécuriser les isotopes de l'Élément 74 avant l'Est.</span> Cependant, le KGB exige une preuve de sang pour valider l'allégeance de "Seven". Ils ont exigé qu'il leur livre un officier traitant occidental de haut rang. <span class="classified">"Four" est le bouc émissaire parfait.</span> Son enquête obstinée et sa conviction d'être sur la bonne piste donneront aux Soviétiques l'illusion d'une capture légitime. C'est aussi <span class="classified">l'occasion idéale de faire dérouter l'opération Fallguy.</span> C'est précisément sa loyauté qui causera sa perte. Si par miracle <span class="classified">"Four"</span> aurait pris connaissance de ce fichier, considérez-le comme <span class="classified">compromis et radié de nos listes.</span> Coupez toutes ses communications. Désactivez ses codes d'extraction. La Stasi est déjà en route vers sa position actuelle. <span class="classified">Que son sacrifice permette à l'Ouest de protéger notre mode de vie.</span></p>
     </div>
     <div class="text-layer text-secret">
-      <p class="window-content--text">L'Agent <span class="declassified">"Four"</span> ne doit sous aucun prétexte être informé de la réalité de cette opération. <span class="declassified">L'Agent "Seven" ne nous a jamais trahis.</span> Son infiltration au sein du complexe scientifique de la Stasi est vitale <span class="declassified">pour sécuriser les isotopes de l'Élément 74 avant l'Est.</span> Cependant, le KGB exige une preuve de sang pour valider l'allégeance de "Seven". Ils ont exigé qu'il leur livre un officier traitant occidental de haut rang. <span class="declassified">"Four" est le bouc émissaire parfait.</span>  Son enquête obstinée et sa conviction d'être sur la bonne piste donneront aux Soviétiques l'illusion d'une capture légitime. C'est aussi <span class="declassified">l'occasion idéale de faire dérouter l'opération Fallguy.</span> C'est précisément sa loyauté qui causera sa perte. Dès que <span class="declassified">"Four"</span> aura pris connaissance de ce fichier, considérez-le comme <span class="declassified">compromis et radié de nos listes.</span> Coupez toutes ses communications. Désactivez ses codes d'extraction. La Stasi est déjà en route vers sa position actuelle. <span class="declassified">Que son sacrifice permette à l'Ouest de protéger notre mode de vie.</span></p>
+      <p class="window-content--text">L'Agent <span class="declassified">"Four"</span> ne doit sous aucun prétexte être informé de la réalité de cette opération. <span class="declassified">L'Agent "Seven" ne nous a jamais trahis.</span> Son infiltration au sein du complexe scientifique de la Stasi est vitale <span class="declassified">pour sécuriser les isotopes de l'Élément 74 avant l'Est.</span> Cependant, le KGB exige une preuve de sang pour valider l'allégeance de "Seven". Ils ont exigé qu'il leur livre un officier traitant occidental de haut rang. <span class="declassified">"Four" est le bouc émissaire parfait.</span>  Son enquête obstinée et sa conviction d'être sur la bonne piste donneront aux Soviétiques l'illusion d'une capture légitime. C'est aussi <span class="declassified">l'occasion idéale de faire dérouter l'opération Fallguy.</span> C'est précisément sa loyauté qui causera sa perte. Si par miracle <span class="declassified">"Four"</span> aurait pris connaissance de ce fichier, considérez-le comme <span class="declassified">compromis et radié de nos listes.</span> Coupez toutes ses communications. Désactivez ses codes d'extraction. La Stasi est déjà en route vers sa position actuelle. <span class="declassified">Que son sacrifice permette à l'Ouest de protéger notre mode de vie.</span></p>
     </div>
     </div>
   </section>

@@ -234,12 +234,10 @@
     
    // PART 2
     else if (etapeActuelle === 2) {
-      // Réponse 
       if (userAnswer === "GRAVITATIONNEL") {
         
         showCenterMessage("INFORMATION FIABLE", "success");
         
-        // 1. On affiche la nouvelle icône pour la 2ème fenetre
         const iconEtape2 = document.querySelector('.terminal-icon--secret__two');
         const winEtape2 = document.querySelector('.terminal-window--secret__two');
         
@@ -252,7 +250,39 @@
           winEtape2.classList.remove('hidden-element');
         }
 
-        // 2. FIN DU JEU : On bloque tout
+        inputField.value = "";
+        
+        footerQuestion.textContent = "But du projet Fallguy : "; 
+        etapeActuelle = 3; 
+
+      } else {
+        showCenterMessage("INFORMATION ERRONÉE", "error");
+        inputField.value = "";
+        gsap.fromTo(inputField, { x: 5 }, { x: 0, duration: 0.05, repeat: 4, yoyo: true });
+      }
+    }
+
+    // PART 3
+    else if (etapeActuelle === 3) {
+      
+      if (userAnswer === "LIVRER UN AGENT DE L'OUEST") { 
+        
+        showCenterMessage("INFORMATION FIABLE", "success");
+        
+        // affiche step 3
+        const iconEtape3 = document.querySelector('.terminal-icon--secret__three');
+        const winEtape3 = document.querySelector('.terminal-window--secret__three');
+        
+        if (iconEtape3) {
+          iconEtape3.classList.remove('hidden-element');
+          iconEtape3.style.display = "flex";
+          gsap.fromTo(iconEtape3, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 });
+        }
+        if (winEtape3) {
+          winEtape3.classList.remove('hidden-element');
+        }
+
+        // FIN DU JEU
         inputField.value = "";
         inputField.disabled = true;
         submitBtn.disabled = true;
@@ -261,7 +291,6 @@
       } else {
         showCenterMessage("INFORMATION ERRONÉE", "error");
         inputField.value = "";
-        // Le champ tremble
         gsap.fromTo(inputField, { x: 5 }, { x: 0, duration: 0.05, repeat: 4, yoyo: true });
       }
     }
@@ -292,7 +321,7 @@
         // DÉCLENCHEUR DU SHUTDOWN FINAL
 
         // Si la fenêtre ouverte est le rapport secret
-        if (targetName === 'secret__two') {
+        if (targetName === 'secret__three') {
           
           // Compte à rebours de 20 secondes (20000 ms) 
           setTimeout(() => {
