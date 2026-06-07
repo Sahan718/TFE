@@ -221,7 +221,7 @@
 
         // STEP 2 SI BON
         inputField.value = ""; 
-        footerQuestion.textContent = "But du projet Fallguy : "; 
+        footerQuestion.textContent = "Technologie de l'armement : "; 
         etapeActuelle = 2; 
 
       } else {
@@ -235,7 +235,7 @@
    // PART 2
     else if (etapeActuelle === 2) {
       // Réponse 
-      if (userAnswer === "LIVRER UN AGENT DE L'OUEST") {
+      if (userAnswer === "GRAVITATIONNEL") {
         
         showCenterMessage("INFORMATION FIABLE", "success");
         

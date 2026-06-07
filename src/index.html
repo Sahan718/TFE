@@ -224,31 +224,54 @@ Fin de transmission"
     </div>
 
     <div class="window-content folder-content">
-      
-      <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file">
-        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
-        <span class="icon_text">Rapport_n°2.txt</span>
-      </div>
 
       <div class="terminal-icon terminal-icon--file inside-folder" data-target="briefing">
         <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
-        <span class="icon_text">Briefing.txt</span>
+        <span class="icon_text">Briefing .txt</span>
+      </div>
+
+      <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__image--two">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Image .txt</span>
+      </div>
+      
+      <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file--one">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Rapport_n°1 .txt</span>
+      </div>
+
+      <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file--two">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Rapport_n°2 .txt</span>
       </div>
 
     </div>
   </section>
 
-  <section class="terminal-window terminal-window--secret__file">
+  <section class="terminal-window terminal-window--briefing">
+    <div class="window-header">
+      <span class="window-title">Briefing.txt</span>
+      <button class="close-btn">X</button>
+    </div>
+
+    <div class="window-content spotlight-container text-spotlight">
+      <div class="text-layer text-normal">
+        <p class="window-content--text">Beau travail Four. Votre deuxième objectif consiste à découvrir le type d'armement que "Seven" est prêt à livrer aux communistes. Nous devons à tout prix le découvrir afin de contrer ces dangers si il est trop tard.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="terminal-window terminal-window--secret__file--one">
     <div class="window-header">
        <div class="window-header--filter">
         <div class="window-header--filter__text">OFF</div>
-        <label for="filter-dcv-secret-file">
-          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-file" class="filter-dcv-toggle">
+        <label for="filter-dcv-secret-file-one">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-file-one" class="filter-dcv-toggle">
           <span class="slider round"></span>
         </label>
         <div class="window-header--filter__text">ON</div>
       </div>
-      <span class="window-title">Rapport_n°2.txt</span>
+      <span class="window-title">Rapport_n°1.txt</span>
       <button class="close-btn">X</button>
     </div>
 
@@ -262,6 +285,52 @@ Fin de transmission"
       </div>
     </div>
   </section>
+
+  <section class="terminal-window terminal-window--secret__file--two">
+    <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv-secret-file-two">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-file-two" class="filter-dcv-toggle">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
+      <span class="window-title">Rapport_n°2.txt</span>
+      <button class="close-btn">X</button>
+    </div>
+
+    <div class="window-content spotlight-container text-spotlight">
+      <div class="text-layer text-normal">
+        <p class="window-content--text">commandement soviétique doute encore de la loyauté absolue de <span class="classified">"Seven".</span> Il n'a pas envie de risquer l'Est de manière inutile. <span class="classified">"Seven"</span> a donc proposé une garantie, qu'on a décidé de nommer <span class="classified">"Projet Fallguy".</span> Pour prouver son allégeance, il s'engage à nous <span class="classified">livrer un agent de l'Ouest</span>, vivant, avec ses codes d'accès. Nous attendons que le spécimen vienne bien à nous. Une fois vérifié, le commandant approuvera avec certitude la loyauté de <span class="classified">"Seven"</span> envers l'Est. <span class="classified">Lancement du projet Fallguy.</span></p>
+      </div>
+
+      <div class="text-layer text-secret">
+        <p class="window-content--text">commandement soviétique doute encore de la loyauté absolue de <span class="declassified">"Seven".</span> Il n'a pas envie de risquer l'Est de manière inutile. <span class="declassified">"Seven"</span> a donc proposé une garantie, qu'on a décidé de nommer <span class="declassified">"Projet Fallguy".</span> Pour prouver son allégeance, il s'engage à nous <span class="declassified">livrer un agent de l'Ouest</span>, vivant, avec ses codes d'accès. Nous attendons que le spécimen vienne bien à nous. Une fois vérifié, le commandant approuvera avec certitude la loyauté de <span class="declassified">"Seven"</span> envers l'Est. <span class="declassified">Lancement du projet Fallguy.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="terminal-window terminal-window--secret__image--two">
+    <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv-secret-image-two">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-image-two" class="filter-dcv-toggle">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
+      <span class="window-title">Image.png</span>
+      <button class="close-btn">X</button>
+    </div>
+
+    <div class="window-content spotlight-container text-spotlight">
+      <img src="./assets/images/KH9_Hexagon-1.webp" alt="Test image" class="window-content--map layer">
+      <img src="./assets/images/Group 5.webp" alt="Test image 2" class="window-content--map secret-layer">
+    </div>
+  </section>
+  
 
    <section class="terminal-window terminal-window--secret__two hidden-element">
     <div class="window-header">
