@@ -226,13 +226,14 @@ body::after {
   margin: 10px !important; 
 }
 
-.terminal-window--image, .terminal-window--map {
+.terminal-window--image, .terminal-window--map, .terminal-window--video {
   width: 100%;  
   max-width: 800px;
 }
 
 .terminal-window--image .window-content, 
-.terminal-window--map .window-content{
+.terminal-window--map .window-content
+.terminal-window--video .window-content{
   display: flex;
   align-items: center;
   overflow: hidden;
