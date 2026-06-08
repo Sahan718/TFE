@@ -358,6 +358,10 @@ body::after {
   align-items: flex-start; 
 }
 
+.window-content.spotlight-container {
+  padding: 0;
+}
+
 /* Applique le padding aux deux couches de texte */
 .text-layer {
   padding: 15px;
