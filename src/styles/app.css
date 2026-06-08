@@ -231,16 +231,23 @@ body::after {
   max-width: 800px;
 }
 
+.terminal-window--secret__image--two {
+  width: 100%;
+  max-width: 500px;
+}
+
 .terminal-window--image .window-content, 
 .terminal-window--map .window-content
-.terminal-window--video .window-content{
+.terminal-window--video .window-content,
+.terminal-window--secret__image--two .window-content{
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
 .terminal-window--image .window-content img, 
-.terminal-window--map .window-content img{
+.terminal-window--map .window-content img, 
+.terminal-window--secret__image--two .window-content img{
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -374,6 +381,30 @@ body::after {
 
 /* ACTIVATION MASQUE FILTRE */
 .spotlight-container.is-revealing .text-secret {
+  opacity: 1;
+}
+
+/* COULEURS FILTRES */
+
+.spotlight-container::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  pointer-events: none; 
+  z-index: 10;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  background: radial-gradient(circle 60px at var(--x) var(--y), #b6c89f33 100%, transparent 100%);
+}
+
+.spotlight-container.text-spotlight::after {
+  background: radial-gradient(circle 30px at var(--x) var(--y), #b6c89f1a 100%, transparent 100%);
+}
+
+.spotlight-container.is-revealing::after {
   opacity: 1;
 }
 
