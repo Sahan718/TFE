@@ -219,7 +219,7 @@ body::after {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  gap: 10px;
+  gap: 30px;
 }
 
 .inside-folder {
