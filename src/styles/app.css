@@ -179,8 +179,20 @@ body::after {
   top: 20%; left: 25%; 
 }
 
-.terminal-window--file, .terminal-icon--folder, .terminal-window--secret, .terminal-window--secret__two, .terminal-icon--secret__three {  
+.terminal-window--file, .terminal-icon--folder, .terminal-window--secret, .terminal-window--secret__two, .terminal-icon--window__three { 
   top: 25%; left: 40%; 
+}
+
+.inside-folder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+}
+
+.inside-folder .icon_text {
+  font-size: 12px;
 }
 
 .window-header {
@@ -219,7 +231,6 @@ body::after {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  gap: 30px;
 }
 
 .inside-folder {
