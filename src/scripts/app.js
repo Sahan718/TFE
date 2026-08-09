@@ -80,6 +80,9 @@
 
   // Fermer les fenêtres
   closeButtons.forEach(btn => {
+    btn.addEventListener('touchstart', (e) => e.stopPropagation(), { passive: true });
+    btn.addEventListener('mousedown', (e) => e.stopPropagation());
+    
     btn.addEventListener('click', () => {
       const parentWindow = btn.closest('.terminal-window');
       if (parentWindow) {
@@ -129,6 +132,14 @@
   const filterToggles = document.querySelectorAll('.filter-dcv-toggle');
 
   filterToggles.forEach(toggle => {
+    
+    // Anti-GSAP 
+    const filterBox = toggle.closest('.window-header--filter');
+    if (filterBox) {
+      filterBox.addEventListener('touchstart', (e) => e.stopPropagation(), { passive: true });
+      filterBox.addEventListener('mousedown', (e) => e.stopPropagation());
+    }
+
     toggle.addEventListener('change', (e) => {
       const parentWindow = toggle.closest('.terminal-window');
       if (parentWindow) {
@@ -355,3 +366,54 @@
       clockElement.textContent = timeString;
     }, 1000);
   }
+
+
+  // Système de grattage en mobile
+
+ if (window.innerWidth <= 1024) {
+    const motsCensures = document.querySelectorAll('.classified');
+    
+    motsCensures.forEach(mot => {
+      // On découpe le bloc en une liste de lettres
+      const lettres = mot.textContent.split('');
+      mot.innerHTML = ''; // On vide le bloc d'origine
+      mot.classList.remove('classified'); // On retire la censure globale du mot
+      
+      // On recrée chaque lettre individuellement avec sa propre petite censure
+      lettres.forEach(lettre => {
+        const span = document.createElement('span');
+        // On gère les espaces pour qu'ils aient une vraie largeur tactile
+        span.innerHTML = lettre === ' ' ? '&nbsp;' : lettre; 
+        span.className = 'classified scratch-letter';
+        mot.appendChild(span);
+      });
+    });
+  }
+
+  // 2. L'ACTION DE GRATTAGE
+  const gratterTexte = (e) => {
+    const touch = e.touches[0];
+    const elementUnderFinger = document.elementFromPoint(touch.clientX, touch.clientY);
+    
+    // Si le doigt touche le mot classifié
+    if (elementUnderFinger && elementUnderFinger.classList.contains('scratch-letter') && elementUnderFinger.classList.contains('classified')) {
+      
+      // ... ET DCV est sur "ON"
+      const container = elementUnderFinger.closest('.spotlight-container');
+      if (container && container.classList.contains('is-revealing')) {
+        
+        // On dévoile lettre par lettre
+        elementUnderFinger.classList.remove('classified');
+        elementUnderFinger.classList.add('declassified');
+        
+        // Anim apparition lettre
+        gsap.fromTo(elementUnderFinger, 
+          { opacity: 0 }, 
+          { opacity: 1, duration: 0.2 }
+        );
+      }
+    }
+  };
+
+  document.addEventListener('touchmove', gratterTexte, { passive: true });
+  document.addEventListener('touchstart', gratterTexte, { passive: true });

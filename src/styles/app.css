@@ -625,29 +625,15 @@ body::after {
 
 @media screen and (max-width: 1024px) {
     
-    #boot-screen, .terminal, .terminal-window, .terminal-footer, .list {
+    .text-secret {
         display: none !important;
     }
 
     .mobile-warning {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-        background-color: var(--bg-color);
-        color: var(--theme-color); 
-        font-family: 'Share Tech Mono', Courier, monospace;
-        text-align: center;
-        padding: 30px;
-        box-sizing: border-box;
+        display: none !important;
     }
 
-    .mobile-warning p {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        border: 1px solid var(--theme-color);
-        padding: 20px;
+    .scratch-letter {
+        border-radius: 0 !important;
     }
 }
