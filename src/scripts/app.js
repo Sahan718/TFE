@@ -370,28 +370,48 @@
 
   // Système de grattage en mobile
 
- if (window.innerWidth <= 1024) {
-    const motsCensures = document.querySelectorAll('.classified');
-    
-    motsCensures.forEach(mot => {
-      // On découpe le bloc en une liste de lettres
-      const lettres = mot.textContent.split('');
-      mot.innerHTML = ''; // On vide le bloc d'origine
-      mot.classList.remove('classified'); // On retire la censure globale du mot
-      
-      // On recrée chaque lettre individuellement avec sa propre petite censure
-      lettres.forEach(lettre => {
-        const span = document.createElement('span');
-        // On gère les espaces pour qu'ils aient une vraie largeur tactile
-        span.innerHTML = lettre === ' ' ? '&nbsp;' : lettre; 
-        span.className = 'classified scratch-letter';
-        mot.appendChild(span);
+ function handleResize() {
+    const motsCensures = document.querySelectorAll('.text-normal .classified, .text-normal .is-split');
+
+    if (window.innerWidth <= 1024) {
+      motsCensures.forEach(mot => {
+        if (!mot.classList.contains('is-split')) {
+          mot.setAttribute('data-original', mot.textContent); 
+          const lettres = mot.textContent.split('');
+          
+          mot.innerHTML = ''; 
+          mot.classList.remove('classified');
+          mot.classList.add('is-split');
+          
+          lettres.forEach(lettre => {
+            const span = document.createElement('span');
+            span.innerHTML = lettre === ' ' ? '&nbsp;' : lettre; 
+            span.className = 'classified scratch-letter';
+            mot.appendChild(span);
+          });
+        }
       });
-    });
+    } else {
+   
+      motsCensures.forEach(mot => {
+        if (mot.classList.contains('is-split')) {
+          mot.textContent = mot.getAttribute('data-original'); 
+          mot.classList.remove('is-split');
+          mot.classList.add('classified'); 
+        }
+      });
+    }
   }
+
+  handleResize();
+  
+  window.addEventListener('resize', handleResize);
 
   // 2. L'ACTION DE GRATTAGE
   const gratterTexte = (e) => {
+    // Évite les erreurs si pas tactile
+    if (!e.touches || e.touches.length === 0) return;
+    
     const touch = e.touches[0];
     const elementUnderFinger = document.elementFromPoint(touch.clientX, touch.clientY);
     
