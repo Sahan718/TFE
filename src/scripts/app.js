@@ -274,30 +274,24 @@
     }
 
     // PART 3
-    else if (etapeActuelle === 3) {
-      
+  else if (etapeActuelle === 3) {
       if (userAnswer === "LIVRER UN AGENT DE L'OUEST") { 
         
-        showCenterMessage("INFORMATION FIABLE", "success");
+        showCenterMessage("CRYPTAGE DÉTECTÉ", "error");
         
-        // affiche step 3
-        const iconEtape3 = document.querySelector('.terminal-icon--secret__three');
-        const winEtape3 = document.querySelector('.terminal-window--secret__three');
-        
-        if (iconEtape3) {
-          iconEtape3.classList.remove('hidden-element');
-          iconEtape3.style.display = "flex";
-          gsap.fromTo(iconEtape3, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 });
-        }
-        if (winEtape3) {
-          winEtape3.classList.remove('hidden-element');
-        }
-
-        // FIN DU JEU
         inputField.value = "";
         inputField.disabled = true;
         submitBtn.disabled = true;
-        footerQuestion.textContent = "SYSTÈME ENTIÈREMENT DÉVERROUILLÉ.";
+
+        const hackWindow = document.querySelector('.terminal-window--hack');
+        if (hackWindow) {
+          hackWindow.classList.remove('hidden-element');
+          hackWindow.classList.add('active');
+          zIndexCounter++;
+          hackWindow.style.zIndex = zIndexCounter;
+          
+          initHack(); // Lance le minijeu
+        }
 
       } else {
         showCenterMessage("INFORMATION ERRONÉE", "error");
@@ -437,3 +431,165 @@
 
   document.addEventListener('touchmove', gratterTexte, { passive: true });
   document.addEventListener('touchstart', gratterTexte, { passive: true });
+
+
+  const hackMatrix = document.getElementById('hack-matrix');
+  const hackBufferSlots = document.querySelectorAll('.buffer-slot');
+  const hackMessage = document.getElementById('hack-message');
+
+  const codesPool = ["1C", "BD", "55", "E9", "FF", "7A"];
+  let targetSeq = []; 
+  let hackGrid = [];
+  let isRowPhase = true;
+  let activeLine = 0; 
+  let hackBuffer = [];
+  const MAX_BUFFER = 4; 
+
+  function initHack() {
+    hackGrid = [];
+    hackBuffer = [];
+    isRowPhase = true;
+    activeLine = 0;
+    if(hackMatrix) hackMatrix.style.pointerEvents = "auto"; 
+
+    // 1. Séquence cible aléatoire
+    targetSeq = [];
+    for(let i = 0; i < 3; i++) {
+      targetSeq.push(codesPool[Math.floor(Math.random() * codesPool.length)]);
+    }
+    
+    const targetUI = document.querySelectorAll('.target-code');
+    if (targetUI.length === 3) {
+      targetUI[0].textContent = targetSeq[0];
+      targetUI[1].textContent = targetSeq[1];
+      targetUI[2].textContent = targetSeq[2];
+    }
+
+    if(hackBufferSlots) {
+        hackBufferSlots.forEach(slot => {
+            slot.textContent = "";
+            slot.style.borderColor = "var(--theme-color)";
+        });
+    }
+
+    if(hackMessage) {
+        hackMessage.textContent = "> NOUS AVONS INTERCEPTÉ UN RAPPORT SECRET DONT NOUS IGNORONS LE CONTENU, DÉCOUVREZ-LE. SÉLECTIONNEZ UNE CLÉ DANS LA PREMIÈRE LIGNE.";
+        hackMessage.className = "hack-message blink-text";
+        hackMessage.style.color = "var(--theme-color)";
+    }
+
+    // 2. Remplissage aléatoire de la grille
+    for (let r = 0; r < 5; r++) {
+      let row = [];
+      for (let c = 0; c < 5; c++) {
+        row.push(codesPool[Math.floor(Math.random() * codesPool.length)]);
+      }
+      hackGrid.push(row);
+    }
+
+    // 3. Chemin (Ligne -> Colonne -> Ligne)
+    let c0 = Math.floor(Math.random() * 5);
+    hackGrid[0][c0] = targetSeq[0];
+
+    let r1 = Math.floor(Math.random() * 4) + 1; 
+    hackGrid[r1][c0] = targetSeq[1];
+
+    let c1 = Math.floor(Math.random() * 5);
+    while (c1 === c0) { c1 = Math.floor(Math.random() * 5); }
+    hackGrid[r1][c1] = targetSeq[2];
+
+    drawMatrix();
+  }
+
+  function drawMatrix() {
+    if(!hackMatrix) return;
+    hackMatrix.innerHTML = "";
+    
+    for (let r = 0; r < 5; r++) {
+      for (let c = 0; c < 5; c++) {
+        const cell = document.createElement('div');
+        cell.className = 'matrix-cell';
+        cell.textContent = hackGrid[r][c];
+
+        if (hackGrid[r][c] === "") {
+          cell.classList.add('used');
+          cell.textContent = "[-]";
+        } else {
+          if (isRowPhase && r === activeLine) {
+            cell.classList.add('active-zone');
+            cell.addEventListener('click', () => handleCellClick(r, c));
+          } else if (!isRowPhase && c === activeLine) {
+            cell.classList.add('active-zone');
+            cell.addEventListener('click', () => handleCellClick(r, c));
+          }
+        }
+        hackMatrix.appendChild(cell);
+      }
+    }
+  }
+
+  function handleCellClick(r, c) {
+    const code = hackGrid[r][c];
+    hackBuffer.push(code); 
+    hackGrid[r][c] = ""; 
+
+    if(hackBufferSlots[hackBuffer.length - 1]) {
+        hackBufferSlots[hackBuffer.length - 1].textContent = code;
+    }
+
+    isRowPhase = !isRowPhase;
+    activeLine = isRowPhase ? r : c; 
+
+    checkHackStatus();
+  }
+
+  function checkHackStatus() {
+    const bufferStr = hackBuffer.join(",");
+    const targetStr = targetSeq.join(",");
+
+    if (bufferStr.includes(targetStr)) {
+      if(hackMessage) {
+          hackMessage.textContent = "> ACCÈS AUTORISÉ. DÉCRYPTAGE TERMINÉ.";
+          hackMessage.classList.remove('blink-text');
+      }
+      if(hackMatrix) hackMatrix.style.pointerEvents = "none";
+      unlockFinalFiles(); 
+      
+    } else if (hackBuffer.length >= MAX_BUFFER) {
+      if(hackMessage) {
+          hackMessage.textContent = "> ÉCHEC. RÉINITIALISATION DU PROTOCOLE...";
+          hackMessage.style.color = "red";
+      }
+      if(hackMatrix) hackMatrix.style.pointerEvents = "none";
+      if(hackBufferSlots) hackBufferSlots.forEach(s => s.style.borderColor = "red");
+      
+      setTimeout(initHack, 1500); 
+    } else {
+      if(hackMessage) {
+          hackMessage.textContent = isRowPhase ? "> SÉLECTIONNEZ UNE CLÉ DANS LA LIGNE EN SURBRILLANCE." : "> SÉLECTIONNEZ UNE CLÉ DANS LA COLONNE EN SURBRILLANCE.";
+      }
+      drawMatrix();
+    }
+  }
+
+  function unlockFinalFiles() {
+    const iconEtape3 = document.querySelector('.terminal-icon--secret__three');
+    const winEtape3 = document.querySelector('.terminal-window--secret__three');
+    
+    if (iconEtape3) {
+      iconEtape3.classList.remove('hidden-element');
+      iconEtape3.style.display = "flex";
+      gsap.fromTo(iconEtape3, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1 });
+    }
+    if (winEtape3) {
+      winEtape3.classList.remove('hidden-element');
+    }
+
+    setTimeout(() => {
+      const hackWindow = document.querySelector('.terminal-window--hack');
+      if (hackWindow) hackWindow.classList.remove('active');
+    }, 2500);
+    
+    const footerQuestion = document.querySelector('.footer-text'); 
+    if(footerQuestion) footerQuestion.textContent = "SYSTÈME ENTIÈREMENT DÉVERROUILLÉ.";
+  }

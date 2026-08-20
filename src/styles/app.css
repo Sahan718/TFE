@@ -617,7 +617,90 @@ body::after {
   50%, 100% { opacity: 0; }
 }
 
-/*  MOBILE  */
+/* Breach Protocol */
+
+.terminal-window--hack {
+  width: 450px !important;
+  background-color: #0a0a0a !important;
+  color: var(--theme-color) !important;
+  border: 2px solid #8b0000 !important; 
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.3) !important;
+}
+
+.hack-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hack-section h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.sequence-box, .buffer-box {
+  display: flex;
+  gap: 10px;
+}
+
+.target-code {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 2px 8px;
+  background-color: rgba(0, 255, 128, 0.1);
+}
+
+.buffer-slot {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--theme-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  width: 100%;
+  max-width: 250px;
+  margin: 10px auto; 
+}
+
+.matrix-cell {
+  aspect-ratio: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.matrix-cell.active-zone {
+  background-color: rgba(0, 255, 128, 0.15);
+  border: 1px solid rgba(0, 255, 128, 0.5);
+}
+
+.matrix-cell.active-zone:hover {
+  background-color: var(--theme-color);
+  color: #000;
+}
+
+.matrix-cell.used {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+
+
+/* MOBILE */
 
 .mobile-warning {
     display: none;
