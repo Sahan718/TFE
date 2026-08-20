@@ -16,6 +16,7 @@ body {
   background-position: center 70px;
   background-size: 400px;
   overflow: hidden;
+  text-shadow: 0 0 1px color-mix(in srgb, currentColor 70%, transparent), 0 0 4px color-mix(in srgb, currentColor 15%, transparent);
 }
 
 body::before {
@@ -25,7 +26,7 @@ body::before {
   left: 0; 
   right: 0;
   bottom: 0;
-  background: linear-gradient(rgba(0, 255, 0, 0.1) 0.1em, transparent 0.1em);
+  background: linear-gradient(rgba(0, 255, 0, 0.1) 0.1em, transparent 0.1em), radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.75) 115%);
   background-size: 100% 0.2em;
   pointer-events: none;
   z-index: 99998;
@@ -39,7 +40,7 @@ body::after {
   right: 0; 
   bottom: 0;
   background:rgba(0, 255, 0, 0.03);
-  animation: terminal-flicker 0.15s infinite;
+  animation: terminal-flicker 0.15s infinite, rolling-bar 10s linear infinite;
   pointer-events: none;
   z-index: 99999;
 }
@@ -55,6 +56,12 @@ body::after {
 }
 
 /*  BOOT SCREEN  */
+@keyframes rolling-bar {
+  0%   { box-shadow: inset 0 100vh 30px rgba(0, 0, 0, 0.05); }
+  100% { box-shadow: inset 0 -100vh 30px rgba(0, 0, 0, 0.05); }
+}
+
+/* BOOT SCREEN */
 .terminal-boot {
   position: fixed;
   top: 0; 
@@ -111,7 +118,7 @@ body::after {
   font-family: inherit;
   font-size: 1.2rem;
   cursor: pointer;
-  visibility: hidden; 
+  visibility: hidden; /* Caché au début pour GSAP */
   opacity: 0;
 }
 
@@ -119,7 +126,7 @@ body::after {
   background: #0a0a0a;
 }
 
-/*  BUREAU OS  */
+/* BUREAU OS */
 .terminal {
   display: flex;
   flex-wrap: wrap;
