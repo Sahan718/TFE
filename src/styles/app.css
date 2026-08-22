@@ -55,7 +55,6 @@ body::after {
   100% { opacity: 1; }
 }
 
-/*  BOOT SCREEN  */
 @keyframes rolling-bar {
   0%   { box-shadow: inset 0 100vh 30px rgba(0, 0, 0, 0.05); }
   100% { box-shadow: inset 0 -100vh 30px rgba(0, 0, 0, 0.05); }
@@ -118,7 +117,7 @@ body::after {
   font-family: inherit;
   font-size: 1.2rem;
   cursor: pointer;
-  visibility: hidden; /* Caché au début pour GSAP */
+  visibility: hidden;
   opacity: 0;
 }
 
@@ -162,7 +161,7 @@ body::after {
   cursor: pointer;
 }
 
-/*  FENÊTRES  */
+/* FENÊTRES */
 .terminal-window {
   display: none;
   position: absolute;
@@ -244,7 +243,7 @@ body::after {
   margin: 10px !important; 
 }
 
-.terminal-window--image, .terminal-window--map, .terminal-window--video {
+.terminal-window--image, .terminal-window--map, .terminal-window--video{
   width: 100%;  
   max-width: 800px;
 }
@@ -255,7 +254,7 @@ body::after {
 }
 
 .terminal-window--image .window-content, 
-.terminal-window--map .window-content
+.terminal-window--map .window-content,
 .terminal-window--video .window-content,
 .terminal-window--secret__image--two .window-content{
   display: flex;
@@ -270,7 +269,6 @@ body::after {
   max-height: 100%;
   object-fit: contain;
 }
-
 
 /* DESIGN BOUTON */
 
@@ -289,7 +287,7 @@ body::after {
   height: 22px; 
 }
 
-/*  SERT A CACHER LA CASE FILTER  */
+/* SERT A CACHER LA CASE FILTER */
 .filter-dcv-toggle {
   opacity: 0;
   width: 0;
@@ -297,7 +295,7 @@ body::after {
   position: absolute; 
 }
 
-/*  FOND DU SLIDER  */
+/* FOND DU SLIDER */
 .slider {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -306,7 +304,7 @@ body::after {
   transition: 0.3s; 
 }
 
-/*  LE BOUTON AVANT  */
+/* LE BOUTON AVANT */
 .slider::before {
   content: "";
   position: absolute;
@@ -319,20 +317,20 @@ body::after {
 }
 
 
-/*  ANIM BOUTON VERS LA DROITE  */
+/* ANIM BOUTON VERS LA DROITE */
 .filter-dcv-toggle:checked + .slider::before {
   transform: translateX(22px);
 }
 
 
 
-/*  L'EFFET VISUEL SUR LE CONTENU  */
+/* L'EFFET VISUEL SUR LE CONTENU */
 
 .window-content > * {
   transition: all 0.5s ease;
 }
 
-/*  SYSTÈME DE LAMPE TORCHE EN HOVER  */
+/* SYSTÈME DE LAMPE TORCHE EN HOVER */
 
 .spotlight-container {
   position: relative;
@@ -380,6 +378,7 @@ body::after {
   padding: 0;
 }
 
+
 /* Applique le padding aux deux couches de texte */
 .text-layer {
   padding: 15px;
@@ -406,31 +405,7 @@ body::after {
   opacity: 1;
 }
 
-/* COULEURS FILTRES */
-
-.spotlight-container::after {
-  content: "";
-  position: absolute;
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0;
-  pointer-events: none; 
-  z-index: 10;
-  opacity: 0; 
-  transition: opacity 0.3s ease;
-  background: radial-gradient(circle 60px at var(--x) var(--y), #b6c89f33 100%, transparent 100%);
-}
-
-.spotlight-container.text-spotlight::after {
-  background: radial-gradient(circle 30px at var(--x) var(--y), #b6c89f1a 100%, transparent 100%);
-}
-
-.spotlight-container.is-revealing::after {
-  opacity: 1;
-}
-
-/*  LE DESIGN DE LA CENSURE  */
+/* LE DESIGN DE LA CENSURE */
 
 .classified {
   background-color: var(--theme-color, #33ff33);
@@ -445,18 +420,16 @@ body::after {
 }
 
 /* Positionne la nouvelle fenêtre secrète */
-.terminal-window--secret, .terminal-window--secret__two {
+.terminal-window--secret, .terminal-window--secret__two, .terminal-window--secret__three{
   top: 30%; 
   left: 30%;
 }
 
-/*  ÉLÉMENTS CACHÉS (POUR LE JS)  */
+/* ÉLÉMENTS CACHÉS (POUR LE JS) */
 .hidden-element {
   display: none !important;
   opacity: 0;
 }
-
-/* MESSAGE DU INPUT */
 
 #terminal-notification {
   position: fixed;
@@ -475,6 +448,7 @@ body::after {
   font-size: 3.5rem;
   text-transform: uppercase;
   letter-spacing: 3px;
+  z-index: 9500;
 }
 
 #terminal-notification.success {
@@ -490,10 +464,9 @@ body::after {
 }
 
 
-
 .terminal-input {
   display: flex;
-  gap: 40px;
+  gap: 80px;
 }
 
 .terminal-input input {
@@ -524,7 +497,7 @@ body::after {
   color: var(--theme-color);
 }
 
-/*  FOOTER  */
+/* FOOTER */
 
 .terminal-footer {
   position: fixed; 
@@ -583,7 +556,7 @@ body::after {
   color: #fff; 
 }
 
-/*  ECRAN SHUTDOWN */
+/* ECRAN SHUTDOWN */
 
 #shutdown-screen {
   position: fixed;
@@ -626,6 +599,28 @@ body::after {
 
 .blink-simple {
   animation: blinking 1s ease-in-out infinite;
+}
+
+.spotlight-container::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  pointer-events: none; 
+  z-index: 10;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  background: radial-gradient(circle 60px at var(--x) var(--y), #b6c89f33 100%, transparent 100%);
+}
+
+.spotlight-container.text-spotlight::after {
+  background: radial-gradient(circle 30px at var(--x) var(--y), #b6c89f1a 100%, transparent 100%);
+}
+
+.spotlight-container.is-revealing::after {
+  opacity: 1;
 }
 
 /* Breach Protocol */
