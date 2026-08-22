@@ -916,6 +916,73 @@ body::after {
       font-size: 1.2rem !important; 
       margin-top: 15px !important; 
     }
+
+    .terminal-window--hack {
+        width: 75vw !important; 
+        max-width: 450px !important;
+        top: 2% !important; 
+        left: 12% !important;
+        height: auto !important;
+        max-height: 95vh !important;
+    }
+
+    .hack-container {
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 5px;
+        padding: 5px !important;
+    }
+
+    .hack-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hack-section:nth-child(1), 
+    .hack-section:nth-child(2) {
+        width: 48%; 
+    }
+
+    .hack-section:nth-child(3) {
+        width: 100%; 
+        margin-top: 5px;
+    }
+
+    .hack-section h3 {
+        font-size: 10px;
+        margin: 0 0 4px 0;
+    }
+
+    .target-code {
+        font-size: 0.8rem;
+        padding: 2px 4px;
+    }
+
+    .buffer-slot {
+        width: 20px;
+        height: 20px;
+        font-size: 0.8rem;
+    }
+
+    .matrix-grid {
+        max-width: 160px; 
+        gap: 2px;
+        margin: 0 auto;
+    }
+
+    .matrix-cell {
+        font-size: 0.85rem;
+    }
+
+    #hack-message {
+        font-size: 0.65rem !important;
+        margin-top: 5px !important;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
