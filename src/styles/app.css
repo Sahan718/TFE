@@ -624,6 +624,10 @@ body::after {
   50%, 100% { opacity: 0; }
 }
 
+.blink-simple {
+  animation: blinking 1s ease-in-out infinite;
+}
+
 /* Breach Protocol */
 
 .terminal-window--hack {

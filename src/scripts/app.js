@@ -178,13 +178,41 @@
   });
 
 
-// SYSTEME DE TEXTE A TROU 
+// SYSTEME DE TEXTE A TROU + POINTS DE VIE
 
   const submitBtn = document.getElementById('submit-answer');
   const inputField = document.getElementById('terminal-answer'); 
   const footerQuestion = document.querySelector('.footer-text'); 
   const terminalNotification = document.getElementById('terminal-notification');
   const terminalNotificationText = document.getElementById('terminal-notification-text');
+
+  let viesRestantes = 3;
+  const hpDisplay = document.getElementById('hp-display');
+
+  function perdreVie() {
+    viesRestantes--;
+    
+    if (viesRestantes === 2) {
+      hpDisplay.textContent = "[■] [■] [ ]";
+    } else if (viesRestantes === 1) {
+      hpDisplay.textContent = "[■] [ ] [ ]";
+      hpDisplay.style.color = "orange"; 
+      hpDisplay.classList.add('blink-simple'); 
+    } else if (viesRestantes <= 0) {
+      hpDisplay.textContent = "[ ] [ ] [ ]";
+      hpDisplay.style.color = "red";
+      
+      // GAME OVER : Déclenche l'écran de Shutdown
+      const shutdownScreen = document.getElementById('shutdown-screen');
+      if (shutdownScreen) {
+        shutdownScreen.classList.remove('hidden-element');
+        gsap.fromTo(shutdownScreen, 
+          { autoAlpha: 0, scale: 1.1 }, 
+          { autoAlpha: 1, scale: 1, duration: 0.2, ease: "power4.in" }
+        );
+      }
+    }
+  }
 
   let etapeActuelle = 1; 
 
@@ -237,6 +265,7 @@
 
       } else {
         showCenterMessage("INFORMATION ERRONÉE", "error");
+        perdreVie();
         inputField.value = "";
         // Le champ de texte tremble si c'est faux !
         gsap.fromTo(inputField, { x: 5 }, { x: 0, duration: 0.05, repeat: 4, yoyo: true });
@@ -268,6 +297,7 @@
 
       } else {
         showCenterMessage("INFORMATION ERRONÉE", "error");
+        perdreVie();
         inputField.value = "";
         gsap.fromTo(inputField, { x: 5 }, { x: 0, duration: 0.05, repeat: 4, yoyo: true });
       }
@@ -295,6 +325,7 @@
 
       } else {
         showCenterMessage("INFORMATION ERRONÉE", "error");
+        perdreVie();
         inputField.value = "";
         gsap.fromTo(inputField, { x: 5 }, { x: 0, duration: 0.05, repeat: 4, yoyo: true });
       }
@@ -474,7 +505,7 @@
 
     if(hackMessage) {
         hackMessage.textContent = "> NOUS AVONS INTERCEPTÉ UN RAPPORT SECRET DONT NOUS IGNORONS LE CONTENU, DÉCOUVREZ-LE. SÉLECTIONNEZ UNE CLÉ DANS LA PREMIÈRE LIGNE.";
-        hackMessage.className = "hack-message blink-text";
+        hackMessage.className = "hack-message";
         hackMessage.style.color = "var(--theme-color)";
     }
 
@@ -560,6 +591,7 @@
           hackMessage.textContent = "> ÉCHEC. RÉINITIALISATION DU PROTOCOLE...";
           hackMessage.style.color = "red";
       }
+      perdreVie();
       if(hackMatrix) hackMatrix.style.pointerEvents = "none";
       if(hackBufferSlots) hackBufferSlots.forEach(s => s.style.borderColor = "red");
       
