@@ -763,12 +763,15 @@ body::after {
     }
 
     .terminal-window {
-        width: 300px !important; 
+        width: 65vw !important;
+        max-width: 400px !important;
+        height: auto !important; 
+        max-height: 85vh !important; 
         min-height: auto !important;
     }
 
     .terminal-window--secret__image--two {
-        width: 300px !important; 
+        width: 60vw !important; 
     }
 
     .terminal-window--image { 
@@ -790,11 +793,45 @@ body::after {
 
     .window-content {
         padding: 10px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .text-layer {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .window-content.text-spotlight {
+        display: block !important;
+        padding: 10px !important;
+        overflow-y: auto;
+    }
+    
+    /* Le ":not(.text-spotlight)" pour pas fliguer l'écrit */
+    .window-content.spotlight-container:not(.text-spotlight) {
+        padding: 0 !important;
+        display: grid !important; 
+        place-items: center !important; 
+        width: 100% !important;
+        height: 100% !important; 
+    }
+
+    .spotlight-container:not(.text-spotlight) .layer, 
+    .spotlight-container:not(.text-spotlight) .secret-layer {
+        grid-area: 1 / 1 !important; 
+        position: static !important; 
+        width: 100% !important;
+        height: 100% !important; 
+        max-height: 70vh !important;
+        object-fit: contain !important; 
+        margin: 0 !important;
     }
 
     .window-content--text {
         font-size: 12px;
         line-height: 1.4;
+        overflow-wrap: break-word;
     }
 
     .terminal-footer {
@@ -852,6 +889,32 @@ body::after {
     .boot-btn {
         font-size: 12px;
         padding: 6px 12px;
+    }
+
+    #terminal-notification { 
+      padding: 15px 20px; 
+      width: 50vw; 
+      box-sizing: border-box; 
+    }
+
+    #terminal-notification h2 { 
+      font-size: 1.5rem; 
+    } 
+
+    .shutdown-content h1 { 
+      font-size: 1.5rem; 
+      margin-bottom: 15px; 
+      padding-bottom: 5px; 
+    }
+
+    .shutdown-content p { 
+      font-size: 1.2rem; 
+      margin: 10px 0; 
+    }
+
+    .blink-text { 
+      font-size: 1.2rem !important; 
+      margin-top: 15px !important; 
     }
 }
 
