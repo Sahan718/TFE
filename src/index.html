@@ -83,13 +83,13 @@ Fin de transmission"
       <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
       <span class="icon_text">Rapports_ suppl.</span>
     </div>
+       <div class="terminal-icon terminal-icon--secret__four hidden-element" data-target="secret__four">
+      <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+      <span class="icon_text">Rapports_ Rohrbach.txt</span>
+    </div>
     <div class="terminal-icon terminal-icon--secret__two hidden-element" data-target="secret__two">
       <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
       <span class="icon_text">Rapport_ Est.txt</span>
-    </div>
-    <div class="terminal-icon terminal-icon--secret__four hidden-element" data-target="secret__four">
-      <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
-      <span class="icon_text">Rapports_ Rohrbach.txt</span>
     </div>
     <div class="terminal-icon terminal-icon--secret__three hidden-element" data-target="secret__three">
       <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
@@ -401,13 +401,34 @@ Fin de transmission"
 
       <div class="terminal-icon terminal-icon--file inside-folder" data-target="briefing__three">
         <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
-        <span class="icon_text">Briefing_n°3.txt</span>
+        <span class="icon_text">Briefing_n°2.txt</span>
       </div>
       
       <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file--four">
         <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
-        <span class="icon_text">Rapport_Rohrbach.txt</span>
+        <span class="icon_text">Login_Rohrbach.txt</span>
       </div>
+
+       <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file--five">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Hexagon.txt</span>
+      </div>
+
+       <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file--six">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Demeter.txt</span>
+      </div>
+
+       <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file--seven">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Leviathan.txt</span>
+      </div>
+
+       <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file--eight">
+        <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
+        <span class="icon_text">Zenith.txt</span>
+      </div>
+
 
       <div class="terminal-icon terminal-icon--file inside-folder hidden-element" id="unlocked-rohrbach-file" data-target="secret__file--reponse">
         <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
@@ -419,7 +440,7 @@ Fin de transmission"
 
   <section class="terminal-window terminal-window--briefing__three">
     <div class="window-header">
-      <span class="window-title">Briefing_n°3 .txt</span>
+      <span class="window-title">Briefing_n°2.txt</span>
       <button class="close-btn">X</button>
     </div>
 
@@ -432,27 +453,145 @@ Fin de transmission"
 
  <section class="terminal-window terminal-window--secret__file--four">
     <div class="window-header">
-       <div class="window-header--filter">
-        <div class="window-header--filter__text">OFF</div>
-        <label for="filter-dcv-secret-four">
-          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-four" class="filter-dcv-toggle">
-          <span class="slider round"></span>
-        </label>
-        <div class="window-header--filter__text">ON</div>
-      </div>
-      <span class="window-title">Rapport_Rohrbach_Est.txt</span>
+      <span class="window-title">Login_Rohrbach.txt</span>
       <button class="close-btn">X</button>
     </div>
 
     <div class="window-content spotlight-container text-spotlight">
       <div class="text-layer text-normal">
-        <p class="window-content--text"></p>
+        <p class="window-content--text">Login :</p>
       </div>
+     <div class="pattern-lock-container">
+          <p class="pattern-title">> MOT DE PASSE REQUIS : DEMETER, LEVIATHAN, HEXAGON, ZENITH</p>
+          <div class="pattern-grid" id="pattern-grid">
+            <div class="pattern-node" data-val="1">1</div>
+            <div class="pattern-node" data-val="2">2</div>
+            <div class="pattern-node" data-val="3">3</div>
+            <div class="pattern-node" data-val="4">4</div>
+            <div class="pattern-node" data-val="5">5</div>
+            <div class="pattern-node" data-val="6">6</div>
+            <div class="pattern-node" data-val="7">7</div>
+            <div class="pattern-node" data-val="8">8</div>
+            <div class="pattern-node" data-val="9">9</div>
+          </div>
+          <p id="pattern-status" class="pattern-status"></p>
+        </div>
+    </div>
+  </section>
+
+  <section class="terminal-window terminal-window--secret__file--five">
+    <div class="window-header">
+       <div class="window-header--filter">
+        <div class="window-header--filter__text">OFF</div>
+        <label for="filter-dcv-secret-file-five">
+          <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-file-five" class="filter-dcv-toggle">
+          <span class="slider round"></span>
+        </label>
+        <div class="window-header--filter__text">ON</div>
+      </div>
+      <span class="window-title">Hexagon.txt</span>
+      <button class="close-btn">X</button>
+    </div>
+
+    <div class="window-content spotlight-container text-spotlight">
+      <div class="text-layer text-normal">
+        <p class="window-content--text">Je ne peux nier le génie du docteur Werner Rohrbach, son égoïsme en revanche ... J'ai travaillé avec lui sur le KH9 Hexagon et l'assemblage prend forme à une vitesse remarquable. Une photo a été prise afin d'avoir un signe d'archive pour d'éventuels futurs tests et références au futur. Si quelqu'un veut y jeter un coup d'oeil, la photo sera disponible dans <span class="classified">les rapports supplémentaires.</span> <span class="classified">Le nom du satellite et la technologie d'armement</span> sont normalement écrits dessus si il n'a pas été effacé depuis.</p>
+      </div>
+
       <div class="text-layer text-secret">
-        <p class="window-content--text"></p>
+        <p class="window-content--text">Je ne peux nier le génie du docteur Werner Rohrbach, son égoïsme en revanche ... J'ai travaillé avec lui sur le KH9 Hexagon et l'assemblage prend forme à une vitesse remarquable. Une photo a été prise afin d'avoir un signe d'archive pour d'éventuels futurs tests et références au futur. Si quelqu'un veut y jeter un coup d'oeil, la photo sera disponible dans <span class="declassified">les rapports supplémentaires.</span> <span class="declassified">Le nom du satellite et la technologie d'armement</span> sont normalement écrits dessus si il n'a pas été effacé depuis.</p>
       </div>
     </div>
   </section>
+
+  <section class="terminal-window terminal-window--secret__file--six">
+      <div class="window-header">
+        <div class="window-header--filter">
+          <div class="window-header--filter__text">OFF</div>
+          <label for="filter-dcv-secret-file-six">
+            <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-file-six" class="filter-dcv-toggle">
+            <span class="slider round"></span>
+          </label>
+          <div class="window-header--filter__text">ON</div>
+        </div>
+        <span class="window-title">Demeter.txt</span>
+        <button class="close-btn">X</button>
+      </div>
+
+      <div class="window-content spotlight-container text-spotlight">
+        <div class="text-layer text-normal">
+          <p class="window-content--text">ne peux nier le génie du docteur Werner Rohrbach, son égoïsme en revanche ... J'ai travaillé avec lui sur le KH9 Hexagon et l'assemblage prend forme à une vitesse remarquable. Une photo a été prise afin d'avoir un signe d'archive pour d'éventuels futurs tests et références au futur. Si quelqu'un veut y jeter un coup d'oeil, la photo sera disponible dans <span class="classified">les rapports supplémentaires.</span> <span class="classified">Le nom du satellite et la technologie d'armement</span> sont normalement écrits dessus si il n'a pas été effacé depuis.</p>
+        </div>
+
+        <div class="text-layer text-secret">
+          <p class="window-content--text">ne peux nier le génie du docteur Werner Rohrbach, son égoïsme en revanche ... J'ai travaillé avec lui sur le KH9 Hexagon et l'assemblage prend forme à une vitesse remarquable. Une photo a été prise afin d'avoir un signe d'archive pour d'éventuels futurs tests et références au futur. Si quelqu'un veut y jeter un coup d'oeil, la photo sera disponible dans <span class="declassified">les rapports supplémentaires.</span> <span class="declassified">Le nom du satellite et la technologie d'armement</span> sont normalement écrits dessus si il n'a pas été effacé depuis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="terminal-window terminal-window--secret__file--seven">
+      <div class="window-header">
+        <div class="window-header--filter">
+          <div class="window-header--filter__text">OFF</div>
+          <label for="filter-dcv-secret-file-seven">
+            <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-file-seven" class="filter-dcv-toggle">
+            <span class="slider round"></span>
+          </label>
+          <div class="window-header--filter__text">ON</div>
+        </div>
+        <span class="window-title">Leviathan.txt</span>
+        <button class="close-btn">X</button>
+      </div>
+
+      <div class="window-content spotlight-container text-spotlight">
+        <div class="text-layer text-normal">
+          <p class="window-content--text">peux nier le génie du docteur Werner Rohrbach, son égoïsme en revanche ... J'ai travaillé avec lui sur le KH9 Hexagon et l'assemblage prend forme à une vitesse remarquable. Une photo a été prise afin d'avoir un signe d'archive pour d'éventuels futurs tests et références au futur. Si quelqu'un veut y jeter un coup d'oeil, la photo sera disponible dans <span class="classified">les rapports supplémentaires.</span> <span class="classified">Le nom du satellite et la technologie d'armement</span> sont normalement écrits dessus si il n'a pas été effacé depuis.</p>
+        </div>
+
+        <div class="text-layer text-secret">
+          <p class="window-content--text">peux nier le génie du docteur Werner Rohrbach, son égoïsme en revanche ... J'ai travaillé avec lui sur le KH9 Hexagon et l'assemblage prend forme à une vitesse remarquable. Une photo a été prise afin d'avoir un signe d'archive pour d'éventuels futurs tests et références au futur. Si quelqu'un veut y jeter un coup d'oeil, la photo sera disponible dans <span class="declassified">les rapports supplémentaires.</span> <span class="declassified">Le nom du satellite et la technologie d'armement</span> sont normalement écrits dessus si il n'a pas été effacé depuis.</p>
+        </div>
+      </div>
+    </section>
+
+       <section class="terminal-window terminal-window--secret__file--eight">
+      <div class="window-header">
+        <div class="window-header--filter">
+          <div class="window-header--filter__text">OFF</div>
+          <label for="filter-dcv-secret-file-eight">
+            <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-file-eight" class="filter-dcv-toggle">
+            <span class="slider round"></span>
+          </label>
+          <div class="window-header--filter__text">ON</div>
+        </div>
+        <span class="window-title">Zenith.txt</span>
+        <button class="close-btn">X</button>
+      </div>
+
+      <div class="window-content spotlight-container text-spotlight">
+        <div class="text-layer text-normal">
+          <p class="window-content--text">peux nier le génie du docteur Werner Rohrbach, son égoïsme en revanche ... J'ai travaillé avec lui sur le KH9 Hexagon et l'assemblage prend forme à une vitesse remarquable. Une photo a été prise afin d'avoir un signe d'archive pour d'éventuels futurs tests et références au futur. Si quelqu'un veut y jeter un coup d'oeil, la photo sera disponible dans <span class="classified">les rapports supplémentaires.</span> <span class="classified">Le nom du satellite et la technologie d'armement</span> sont normalement écrits dessus si il n'a pas été effacé depuis.</p>
+        </div>
+
+        <div class="text-layer text-secret">
+          <p class="window-content--text">peux nier le génie du docteur Werner Rohrbach, son égoïsme en revanche ... J'ai travaillé avec lui sur le KH9 Hexagon et l'assemblage prend forme à une vitesse remarquable. Une photo a été prise afin d'avoir un signe d'archive pour d'éventuels futurs tests et références au futur. Si quelqu'un veut y jeter un coup d'oeil, la photo sera disponible dans <span class="declassified">les rapports supplémentaires.</span> <span class="declassified">Le nom du satellite et la technologie d'armement</span> sont normalement écrits dessus si il n'a pas été effacé depuis.</p>
+        </div>
+      </div>
+    </section>
+    
+
+
+  <section class="terminal-window terminal-window--secret__file--reponse">
+    <div class="window-header">
+      <span class="window-title">Rapport_labo.txt</span>
+      <button class="close-btn">X</button>
+    </div>
+    <div class="window-content text-layer text-normal">
+      <p class="window-content--text">ACCÈS CONFIDENTIEL.<br><br>Le véritable nom du projet n'est pas celui que l'on croit. Pour prouver votre habilitation, vous devrez soumettre le nom de code : FALLGUY au système central.</p>
+    </div>
+  </section>
+
+  
   
 
   <section class="terminal-window terminal-window--secret__two hidden-element">
@@ -465,7 +604,7 @@ Fin de transmission"
 
       <div class="terminal-icon terminal-icon--file inside-folder" data-target="briefing__two">
         <img src="./assets/images/icons8-file-64-d.svg" alt="Icone de file" class="icon_image">
-        <span class="icon_text">Briefing_n°2.txt</span>
+        <span class="icon_text">Briefing_n°3.txt</span>
       </div>
       
       <div class="terminal-icon terminal-icon--file inside-folder" data-target="secret__file--three">
@@ -478,7 +617,7 @@ Fin de transmission"
 
   <section class="terminal-window terminal-window--briefing__two">
     <div class="window-header">
-      <span class="window-title">Briefing_n°2 .txt</span>
+      <span class="window-title">Briefing_n°3.txt</span>
       <button class="close-btn">X</button>
     </div>
 

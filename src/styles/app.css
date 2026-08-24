@@ -705,6 +705,71 @@ body::after {
 }
 
 
+.pattern-lock-container {
+  margin-top: 20px;
+  border: 1px dashed var(--theme-color);
+  padding: 20px 15px; 
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10; 
+}
+
+.pattern-title {
+  font-size: 14px;
+  margin: 0 0 20px 0;
+  color: var(--theme-color);
+}
+
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 45px); 
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.pattern-node {
+  width: 45px; 
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid var(--theme-color);
+  color: var(--theme-color);
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: transparent;
+  transition: all 0.1s ease;
+}
+
+.pattern-node:hover {
+  background-color: rgba(0, 255, 128, 0.2);
+}
+
+.pattern-node:active {
+  background-color: var(--theme-color);
+  color: #000;
+}
+
+.pattern-node.error {
+  border-color: red;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.pattern-status {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 20px;
+  letter-spacing: 2px;
+}
+
+
+
 
 /* MOBILE */
 

@@ -303,7 +303,7 @@
       }
     }
 
-     else if (etapeActuelle === 3) {
+else if (etapeActuelle === 3) {
       if (userAnswer === "BERLIN") {
         
         showCenterMessage("INFORMATION FIABLE", "success");
@@ -323,7 +323,7 @@
         inputField.value = "";
         
         footerQuestion.textContent = "But du projet Fallguy : "; 
-        etapeActuelle = 3; 
+        etapeActuelle = 4;
 
       } else {
         showCenterMessage("INFORMATION ERRONÉE", "error");
@@ -333,9 +333,8 @@
       }
     }
 
-
-    // PART 4
-  else if (etapeActuelle === 3) {
+    // PART 4 :
+    else if (etapeActuelle === 4) { 
       if (userAnswer === "LIVRER UN AGENT DE L'OUEST") { 
         
         showCenterMessage("CRYPTAGE DÉTECTÉ", "error");
@@ -657,4 +656,61 @@
     
     const footerQuestion = document.querySelector('.footer-text'); 
     if(footerQuestion) footerQuestion.textContent = "SYSTÈME ENTIÈREMENT DÉVERROUILLÉ.";
+  }
+
+
+  const patternNodes = document.querySelectorAll('.pattern-node');
+  const patternStatus = document.getElementById('pattern-status');
+  let currentPattern = [];
+  
+  // LE MOT DE PASSE (Toujours la même logique)
+  const correctPattern = ["1", "5", "9", "8",]; 
+
+  patternNodes.forEach(node => {
+    node.addEventListener('click', () => {
+      const val = node.getAttribute('data-val');
+      
+      // Si on n'a pas encore rentré les 5 chiffres
+      if (currentPattern.length < correctPattern.length) {
+        currentPattern.push(val);
+        
+        // Affiche des étoiles pour simuler le mdp
+        patternStatus.style.color = "var(--theme-color)";
+        patternStatus.textContent = "> " + "* ".repeat(currentPattern.length);
+        
+        // Vérifie si c'est fini
+        if (currentPattern.length === correctPattern.length) {
+          setTimeout(checkPattern, 200); 
+        }
+      }
+    });
+  });
+
+  function checkPattern() {
+    const isCorrect = currentPattern.every((val, index) => val === correctPattern[index]);
+    
+    if (isCorrect) {
+      patternStatus.textContent = "> CODE ACCEPTÉ. FICHIER DÉVERROUILLÉ.";
+      patternStatus.style.color = "var(--theme-color)";
+      
+      const secretFileIcon = document.getElementById('unlocked-rohrbach-file');
+      if (secretFileIcon) {
+        secretFileIcon.classList.remove('hidden-element');
+        gsap.fromTo(secretFileIcon, { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out" });
+      }
+    } else {
+      patternStatus.textContent = "> CODE ERRONÉ.";
+      patternStatus.style.color = "red";
+      
+      patternNodes.forEach(n => n.classList.add('error'));
+
+      if (typeof perdreVie === 'function') perdreVie();
+
+      // Réinitialise le digicode après 1 seconde
+      setTimeout(() => {
+        patternNodes.forEach(n => n.classList.remove('error'));
+        currentPattern = [];
+        patternStatus.textContent = "";
+      }, 1000);
+    }
   }
