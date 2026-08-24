@@ -278,8 +278,8 @@
         
         showCenterMessage("INFORMATION FIABLE", "success");
         
-        const iconEtape2 = document.querySelector('.terminal-icon--secret__two');
-        const winEtape2 = document.querySelector('.terminal-window--secret__two');
+        const iconEtape2 = document.querySelector('.terminal-icon--secret__four');
+        const winEtape2 = document.querySelector('.terminal-window--secret__four');
         
         if (iconEtape2) {
           iconEtape2.classList.remove('hidden-element');
@@ -288,6 +288,36 @@
         }
         if (winEtape2) {
           winEtape2.classList.remove('hidden-element');
+        }
+
+        inputField.value = "";
+        
+        footerQuestion.textContent = "Emplacement de Rohrbach : "; 
+        etapeActuelle = 3; 
+
+      } else {
+        showCenterMessage("INFORMATION ERRONÉE", "error");
+        perdreVie();
+        inputField.value = "";
+        gsap.fromTo(inputField, { x: 5 }, { x: 0, duration: 0.05, repeat: 4, yoyo: true });
+      }
+    }
+
+     else if (etapeActuelle === 3) {
+      if (userAnswer === "BERLIN") {
+        
+        showCenterMessage("INFORMATION FIABLE", "success");
+        
+        const iconEtape3 = document.querySelector('.terminal-icon--secret__two');
+        const winEtape3 = document.querySelector('.terminal-window--secret__two');
+        
+        if (iconEtape3) {
+          iconEtape3.classList.remove('hidden-element');
+          iconEtape3.style.display = "flex";
+          gsap.fromTo(iconEtape3, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 });
+        }
+        if (winEtape3) {
+          winEtape3.classList.remove('hidden-element');
         }
 
         inputField.value = "";
@@ -303,7 +333,8 @@
       }
     }
 
-    // PART 3
+
+    // PART 4
   else if (etapeActuelle === 3) {
       if (userAnswer === "LIVRER UN AGENT DE L'OUEST") { 
         
@@ -463,6 +494,8 @@
   document.addEventListener('touchmove', gratterTexte, { passive: true });
   document.addEventListener('touchstart', gratterTexte, { passive: true });
 
+
+  // Système Breach Protocol
 
   const hackMatrix = document.getElementById('hack-matrix');
   const hackBufferSlots = document.querySelectorAll('.buffer-slot');

@@ -148,7 +148,7 @@ body::after {
   width: 100%;
 }
 
-.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--file__two, .terminal-icon--folder, .terminal-icon--video, .terminal-icon--secret, .terminal-icon--secret__two, .terminal-icon--secret__three {
+.terminal-icon--image, .terminal-icon--map, .terminal-icon--file, .terminal-icon--file__two, .terminal-icon--folder, .terminal-icon--video, .terminal-icon--secret, .terminal-icon--secret__two, .terminal-icon--secret__three, .terminal-icon--secret__four {
   width: 80px;
   height: 70px;
   margin: 10px;
