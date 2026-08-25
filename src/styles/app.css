@@ -793,6 +793,22 @@ body::after {
   letter-spacing: 2px;
 }
 
+.terminal-window--secret__file--four {
+  background-color: #0a0a0a !important;
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.3) !important;
+}
+
+.terminal-window--secret__file--four .window-content {
+  background-color: #0a0a0a !important;
+  color: var(--theme-color) !important;
+}
+
+.pattern-lock-container {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 10px 15px; 
+}
+
 
 /* MOBILE */
 
