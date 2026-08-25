@@ -627,34 +627,52 @@ body::after {
 
 .terminal-window--hack {
   width: 450px !important;
-  background-color: #0a0a0a !important;
-  color: var(--theme-color) !important;
-  border: 2px solid #8b0000 !important; 
-  box-shadow: 0 0 30px rgba(139, 0, 0, 0.3) !important;
+  background-color: rgba(0, 0, 0, 1) !important;
+  border: 1px solid black !important; 
+  box-shadow: none !important;
+}
+
+.terminal-window--hack .window-header {
+  background-color: red !important;
+  color: #000 !important;
+}
+
+.terminal-window--hack .close-btn {
+  color: #000 !important;
+}
+
+.terminal-window--hack .close-btn:hover {
+  color: red !important;
 }
 
 .hack-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 20px 15px !important;
+  text-align: center;
 }
 
 .hack-section h3 {
   margin: 0 0 8px 0;
   font-size: 14px;
-  opacity: 0.7;
+  color: var(--theme-color);
 }
 
 .sequence-box, .buffer-box {
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 
 .target-code {
   font-weight: bold;
   font-size: 1.2rem;
   padding: 2px 8px;
-  background-color: rgba(0, 255, 128, 0.1);
+  border: 1px solid var(--theme-color);
+  background-color: transparent;
+  color: var(--theme-color);
 }
 
 .buffer-slot {
@@ -666,12 +684,13 @@ body::after {
   align-items: center;
   font-weight: bold;
   font-size: 1.1rem;
+  color: var(--theme-color);
 }
 
 .matrix-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
+  gap: 6px;
   width: 100%;
   max-width: 250px;
   margin: 10px auto; 
@@ -683,18 +702,24 @@ body::after {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  border: 1px solid transparent;
-  transition: all 0.2s;
+  border: 1px solid var(--theme-color);
+  color: var(--theme-color);
+  background-color: transparent;
+  transition: all 0.1s ease;
 }
 
 .matrix-cell.active-zone {
-  background-color: rgba(0, 255, 128, 0.15);
-  border: 1px solid rgba(0, 255, 128, 0.5);
+  background-color: rgba(0, 255, 128, 0.1);
+  box-shadow: inset 0 0 5px rgba(0, 255, 128, 0.2);
 }
 
 .matrix-cell.active-zone:hover {
+  background-color: rgba(0, 255, 128, 0.3);
+}
+
+.matrix-cell.active-zone:active {
   background-color: var(--theme-color);
   color: #000;
 }
@@ -704,6 +729,8 @@ body::after {
   pointer-events: none;
 }
 
+
+/* Digicode */
 
 .pattern-lock-container {
   padding: 20px 15px; 
@@ -765,8 +792,6 @@ body::after {
   min-height: 20px;
   letter-spacing: 2px;
 }
-
-
 
 
 /* MOBILE */
