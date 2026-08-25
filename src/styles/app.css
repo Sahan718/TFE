@@ -706,8 +706,6 @@ body::after {
 
 
 .pattern-lock-container {
-  margin-top: 20px;
-  border: 1px dashed var(--theme-color);
   padding: 20px 15px; 
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
