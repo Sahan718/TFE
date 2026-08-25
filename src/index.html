@@ -582,13 +582,28 @@ Fin de transmission"
 
 
   <section class="terminal-window terminal-window--secret__file--reponse">
-    <div class="window-header">
-      <span class="window-title">Rapport_labo.txt</span>
-      <button class="close-btn">X</button>
-    </div>
-    <div class="window-content text-layer text-normal">
-      <p class="window-content--text">ACCÈS CONFIDENTIEL.<br><br>Le véritable nom du projet n'est pas celui que l'on croit. Pour prouver votre habilitation, vous devrez soumettre le nom de code : FALLGUY au système central.</p>
-    </div>
+      <div class="window-header">
+        <div class="window-header--filter">
+          <div class="window-header--filter__text">OFF</div>
+          <label for="filter-dcv-secret-file-reponse">
+            <input type="checkbox" name="dcvfilter" id="filter-dcv-secret-file-reponse" class="filter-dcv-toggle">
+            <span class="slider round"></span>
+          </label>
+          <div class="window-header--filter__text">ON</div>
+        </div>
+        <span class="window-title">Rapport_labo.txt</span>
+        <button class="close-btn">X</button>
+      </div>
+      
+       <div class="window-content spotlight-container text-spotlight">
+        <div class="text-layer text-normal">
+          <p class="window-content--text">ACCÈS CONFIDENTIEL.<br><br>Le docteur Werner Rohrbach attend la visite des hauts-gradés du bloc de l'Est dans son laboratoire. La visite va se dérouler à <span class="classified">Brandebourg</span>, là où se situe le laboratoire, pour le test et la possible validité du projet Hexagon. Je doute qu'il y ait du souci vu l'importance et les moyens mis à disposition pour la réussite du projet, mais nous attendrons le verdict.</p>
+        </div>
+
+        <div class="text-layer text-secret">
+          <p class="window-content--text">ACCÈS CONFIDENTIEL.<br><br>Le docteur Werner Rohrbach attend la visite des hauts-gradés du bloc de l'Est dans son laboratoire. La visite va se dérouler à <span class="declassified">Brandebourg</span>, là où se situe le laboratoire, pour le test et la possible validité du projet Hexagon. Je doute qu'il y ait du souci vu l'importance et les moyens mis à disposition pour la réussite du projet, mais nous attendrons le verdict.</p>
+        </div>
+      </div>
   </section>
 
   

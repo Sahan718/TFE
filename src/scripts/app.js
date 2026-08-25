@@ -304,7 +304,7 @@
     }
 
 else if (etapeActuelle === 3) {
-      if (userAnswer === "BERLIN") {
+      if (userAnswer === "BRANDEBOURG") {
         
         showCenterMessage("INFORMATION FIABLE", "success");
         
