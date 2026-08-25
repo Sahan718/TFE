@@ -663,8 +663,8 @@ else if (etapeActuelle === 3) {
   const patternStatus = document.getElementById('pattern-status');
   let currentPattern = [];
   
-  // LE MOT DE PASSE (Toujours la même logique)
-  const correctPattern = ["1", "5", "9", "8",]; 
+  // LE MOT DE PASSE
+  const correctPattern = ["1", "8", "9", "5",]; 
 
   patternNodes.forEach(node => {
     node.addEventListener('click', () => {
@@ -678,7 +678,7 @@ else if (etapeActuelle === 3) {
         patternStatus.style.color = "var(--theme-color)";
         patternStatus.textContent = "> " + "* ".repeat(currentPattern.length);
         
-        // Vérifie si c'est fini
+        // Check si c'est fini
         if (currentPattern.length === correctPattern.length) {
           setTimeout(checkPattern, 200); 
         }
