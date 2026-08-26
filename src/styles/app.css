@@ -1086,6 +1086,34 @@ body::after {
         width: 100%;
         text-align: center;
     }
+
+    .pattern-lock-container {
+        padding: 5px !important;
+        margin-top: 5px !important;
+    }
+
+    .pattern-title {
+        font-size: 10px !important;
+        margin: 0 0 20px 0 !important;
+    }
+
+    .pattern-grid {
+        grid-template-columns: repeat(3, 35px) !important;
+        gap: 8px !important;
+    }
+
+    .pattern-node {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 1rem !important;
+    }
+
+    .pattern-status {
+        font-size: 10px !important;
+        margin-top: 20px !important;
+        margin-bottom: 5px !important;
+        min-height: 15px !important;
+    }
 }
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
