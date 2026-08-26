@@ -822,6 +822,11 @@ body::after {
 }
 
 @media screen and (max-width: 1024px) {
+
+   body {
+        background-size: 200px !important;
+        background-position: center center !important;
+    }
     
     /* Texte classifié à gratter */
     .text-secret {
