@@ -734,7 +734,6 @@ body::after {
   pointer-events: none;
 }
 
-
 /* Digicode */
 
 .pattern-lock-container {
@@ -823,7 +822,7 @@ body::after {
 
 @media screen and (max-width: 1024px) {
 
-   body {
+    body {
         background-size: 200px !important;
         background-position: center center !important;
     }
@@ -1095,6 +1094,15 @@ body::after {
         margin-top: 5px !important;
         width: 100%;
         text-align: center;
+    }
+
+    .terminal-window--secret__file--four {
+        width: 75vw !important; 
+        max-width: 450px !important;
+        top: 2% !important; 
+        left: 12% !important;
+        height: auto !important;
+        max-height: 95vh !important;
     }
 
     .pattern-lock-container {
